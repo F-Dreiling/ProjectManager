@@ -1,6 +1,8 @@
 <?php require_once __DIR__ . '/../layout/header.php'; ?>
 
-<h2 class="mb-4 text-center">Clients</h2>
+<h2 class="mb-1">Clients</h2>
+<h5 class="mb-1">Total: <?= count($clients) ?></h5>
+<h2 class="mb-4">&gt;&gt;</h2>
 
 <?php require_once __DIR__ . '/../layout/flash.php'; ?>
 

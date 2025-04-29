@@ -6,7 +6,8 @@
 
 <?php require __DIR__ . '/../layout/header.php'; ?>
 
-<h2 class="mb-4 text-center">Client Details</h2>
+<h2 class="mb-1">Client Details</h2>
+<h2 class="mb-4">&gt;&gt;</h2>
 
 <div class="d-flex justify-content-center">
     <div class="card shadow mb-4 w-50">

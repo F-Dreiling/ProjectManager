@@ -1,6 +1,7 @@
 <?php require __DIR__ . '/../layout/header.php'; ?>
 
-<h2 class="mb-4 text-center">Dashboard</h2>
+<h2 class="mb-1">Dashboard</h2>
+<h2 class="mb-4">&gt;&gt;</h2>
 
 <div class="row">
     <div class="col-md-6">
