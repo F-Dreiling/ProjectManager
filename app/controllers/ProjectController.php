@@ -8,27 +8,39 @@ class ProjectController
     public function index()
     {
         $projects = Project::all($_SESSION['user']['id']);
+
         $client_names = [];
         foreach ($projects as $project) {
             $client = Client::find($project['client_id']);
             $client_names[$project['id']] = $client ? $client['name'] : 'N/A';
         }
+
         require_once __DIR__ . '/../views/projects/index.php';
     }
 
     public function create()
     {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $title = $_POST['title'];
-            $description = $_POST['description'];
+        require_once __DIR__ . '/../views/projects/create.php';
+    }
 
-            Project::create($title, $description);
-            $_SESSION['success'] = 'Project created successfully';
-            header('Location: ' . BASE_PATH . '/projects');
+    public function store()
+    {
+        if (!isset($_POST['title']) || !isset($_POST['client'])) {
+            $_SESSION['error'] = 'Title and Client are required';
+            header('Location: ' . BASE_PATH . '/projects/create');
             return;
         }
-        
-        require_once __DIR__ . '/../views/projects/create.php';
+
+        $client = $_POST['client'];
+        $title = $_POST['title'];
+        $due_date = $_POST['due_date'];
+        $status = $_POST['status'] ?? 'open';
+        $description = $_POST['description'];
+
+        Project::create($_SESSION['user']['id'], $client, $title, $due_date, $status, $description);
+        $_SESSION['success'] = 'Project created successfully';
+        header('Location: ' . BASE_PATH . '/projects');
+        return; 
     }
 
     public function show($id)
@@ -69,6 +81,7 @@ class ProjectController
     public function delete($id)
     {
         Project::delete($id);
+        $_SESSION['success'] = 'Project deleted successfully';
         header('Location: ' . BASE_PATH . '/projects');
         return;
     }

@@ -1,3 +1,9 @@
+<?php if (!$client) {
+    $_SESSION['error'] = 'Client not found';
+    header('Location: ' . BASE_PATH . '/clients');
+    return;
+} ?>
+
 <?php require_once __DIR__ . '/../layout/header.php'; ?>
 
 <h1>Edit Client</h1>

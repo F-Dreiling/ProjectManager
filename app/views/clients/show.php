@@ -12,13 +12,13 @@
 <div class="d-flex justify-content-center">
     <div class="card shadow mb-4 w-50">
         <div class="card-header bg-warning text-white">
-                <h5 class="mb-0"><?= htmlspecialchars($client['name']) ?></h5>
+            <h5 class="mb-0">#<?= htmlspecialchars($client['id']) ?> <?= htmlspecialchars($client['name']) ?></h5>
         </div>
         <div class="card-body">
-        <table class="table">
+            <table class="table">
                 <tbody>
                     <tr>
-                        <th>Contact Person</th>
+                        <th>Contact</th>
                         <td><?= htmlspecialchars($client['contact'] ?? 'N/A') ?></td>
                     </tr>
                     <tr>
@@ -30,7 +30,7 @@
                         <td><?= htmlspecialchars($client['phone'] ?? 'N/A') ?></td>
                     </tr>
                     <tr>
-                        <th>Company Name</th>
+                        <th>Company</th>
                         <td><?= htmlspecialchars($client['company'] ?? 'N/A') ?></td>
                     </tr>
                     <tr>

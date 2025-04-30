@@ -20,11 +20,11 @@ class Project
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function create($title, $description)
+    public static function create($user_id, $client_id, $title, $due_date, $status, $description)
     {
         $db = Database::connect();
-        $stmt = $db->prepare('INSERT INTO projects (title, description, created_at, updated_at) VALUES (?, ?, NOW(), NOW())');
-        $stmt->execute([$title, $description]);
+        $stmt = $db->prepare('INSERT INTO projects (client_id, user_id, title, description, status, due_date, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, NOW(), NOW())');
+        $stmt->execute([$client_id, $user_id, $title, $description, $status, $due_date]);
     }
 
     public static function find($id)

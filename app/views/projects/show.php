@@ -12,14 +12,14 @@
 <div class="d-flex justify-content-center">
     <div class="card shadow mb-4 w-50">
         <div class="card-header bg-success text-white">
-            <h5 class="mb-0"><?= htmlspecialchars($project['title']) ?></h5>
+            <h5 class="mb-0">#<?= htmlspecialchars($project['id']) ?> <?= htmlspecialchars($project['title']) ?></h5>
         </div>
         <div class="card-body">
-        <table class="table">
+            <table class="table">
                 <tbody>
                     <tr>
                         <th>Client</th>
-                        <td><?= htmlspecialchars($client_name) ?></td>
+                        <td>#<?= htmlspecialchars($project['client_id']) ?> <?= htmlspecialchars($client_name) ?></td>
                     </tr>
                     <tr>
                         <th>Due Date</th>

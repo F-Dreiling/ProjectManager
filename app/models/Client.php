@@ -20,11 +20,11 @@ class Client
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function create($name, $email)
+    public static function create($user_id, $name, $contact, $email, $phone, $company, $notes)
     {
         $db = Database::connect();
-        $stmt = $db->prepare('INSERT INTO clients (name, email, created_at, updated_at) VALUES (?, ?, NOW(), NOW())');
-        $stmt->execute([$name, $email]);
+        $stmt = $db->prepare('INSERT INTO clients (user_id, name, email, phone, contact, company, notes, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, NOW(), NOW())');
+        $stmt->execute([$user_id, $name, $email, $phone, $contact, $company, $notes]);
     }
 
     public static function find($id)

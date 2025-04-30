@@ -1,3 +1,9 @@
+<?php if (!$project) {
+    $_SESSION['error'] = 'Project not found';
+    header('Location: ' . BASE_PATH . '/projects');
+    return;
+} ?>
+
 <?php require_once __DIR__ . '/../layout/header.php'; ?>
 
 <h1>Edit Project</h1>

@@ -9,12 +9,13 @@
 <table class="table table-striped table-hover">
     <thead>
         <tr>
-            <th>Name</th><th>Contact</th><th>Email</th><th>Actions</th>
+            <th>ID</th><th>Name</th><th>Contact</th><th>Email</th><th>Actions</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach ($clients as $client): ?>
             <tr>
+                <td><?= htmlspecialchars($client['id']) ?></td>
                 <td>
                     <a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>" class="text-black text-decoration-none"><?= htmlspecialchars($client['name']) ?></a>
                 </td>
