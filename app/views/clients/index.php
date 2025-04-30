@@ -30,9 +30,9 @@
 </table>
 
 <div class="d-flex justify-content-center align-items-center">
-    <a href="<?= BASE_PATH ?>/" class="btn btn-secondary me-2">&lt;&lt; Dashboard</a>
+    <a href="<?= BASE_PATH ?>/" class="btn btn-secondary shadow me-2">&lt;&lt; Dashboard</a>
     |
-    <a href="<?= BASE_PATH ?>/clients/create" class="btn btn-primary ms-2">Add Client</a>
+    <a href="<?= BASE_PATH ?>/clients/create" class="btn btn-primary shadow ms-2">Add Client</a>
 </div>
 
 <?php require_once __DIR__ . '/../layout/footer.php'; ?>

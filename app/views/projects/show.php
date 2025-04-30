@@ -48,13 +48,13 @@
 </div>
 
 <div class="d-flex justify-content-center align-items-center">
-    <a href="<?= BASE_PATH ?>/" class="btn btn-secondary me-2">&lt;&lt; Dashboard</a>
+    <a href="<?= BASE_PATH ?>/" class="btn btn-secondary shadow me-2">&lt;&lt; Dashboard</a>
     |
-    <a href="<?= BASE_PATH ?>/projects" class="btn bg-success text-white mx-2">Projects</a>
+    <a href="<?= BASE_PATH ?>/projects" class="btn bg-success text-white shadow mx-2">Projects</a>
     |
-    <a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/edit" class="btn btn-primary mx-2">Edit</a>
+    <a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/edit" class="btn btn-primary shadow mx-2">Edit</a>
     |
-    <a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/delete" class="btn btn-danger ms-2">Delete</a>
+    <a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/delete" class="btn btn-danger shadow ms-2">Delete</a>
 </div>
 
 <?php require __DIR__ . '/../layout/footer.php'; ?>
