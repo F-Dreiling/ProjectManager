@@ -50,9 +50,9 @@
 <div class="d-flex justify-content-center align-items-center">
     <a href="<?= BASE_PATH ?>/" class="btn btn-secondary me-2">&lt;&lt; Dashboard</a>
     |
-    <a href="<?= BASE_PATH ?>/projects" class="btn btn-secondary mx-2">&lt; Projects</a>
+    <a href="<?= BASE_PATH ?>/projects" class="btn bg-success text-white mx-2">Projects</a>
     |
-    <a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/edit" class="btn btn-info mx-2">Edit</a>
+    <a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/edit" class="btn btn-primary mx-2">Edit</a>
     |
     <a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/delete" class="btn btn-danger ms-2">Delete</a>
 </div>

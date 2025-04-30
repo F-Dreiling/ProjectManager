@@ -26,7 +26,7 @@
                         </tr>
                         <tr>
                             <th>Phone</th>
-                            <td><input type="number" name="phone" placeholder="Phone Number"></td>
+                            <td><input type="text" name="phone" placeholder="Phone Number"></td>
                         </tr>
                         <tr>
                             <th>Company</th>
@@ -42,9 +42,9 @@
         </div>
     </div>
     <div class="d-flex justify-content-center align-items-center">
-        <button type="submit" class="btn btn-primary me-2">Save</button>
+        <a href="<?= BASE_PATH ?>/clients" class="btn btn-secondary me-2">Cancel</a>
         |
-        <a href="<?= BASE_PATH ?>/clients" class="btn btn-secondary ms-2">Cancel</a>
+        <button type="submit" class="btn btn-primary ms-2">Save</button>
     </div>
 </form>
 

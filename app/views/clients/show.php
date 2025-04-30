@@ -54,9 +54,9 @@
 <div class="d-flex justify-content-center align-items-center">
     <a href="<?= BASE_PATH ?>/" class="btn btn-secondary me-2">&lt;&lt; Dashboard</a>
     |
-    <a href="<?= BASE_PATH ?>/clients" class="btn btn-secondary mx-2">&lt; Clients</a>
+    <a href="<?= BASE_PATH ?>/clients" class="btn bg-warning text-white mx-2">Clients</a>
     |
-    <a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>/edit" class="btn btn-info mx-2">Edit</a>
+    <a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>/edit" class="btn btn-primary mx-2">Edit</a>
     |
     <a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>/delete" class="btn btn-danger ms-2">Delete</a>
 </div>

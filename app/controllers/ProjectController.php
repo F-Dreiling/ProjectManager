@@ -31,10 +31,17 @@ class ProjectController
             return;
         }
 
-        $client = $_POST['client'];
+        $client = Client::find($_POST['client'])['id'];
+
+        if (!$client) {
+            $_SESSION['error'] = 'Client not found';
+            header('Location: ' . BASE_PATH . '/projects/create');
+            return;
+        }
+
         $title = $_POST['title'];
-        $due_date = $_POST['due_date'];
-        $status = $_POST['status'] ?? 'open';
+        $due_date = !empty($_POST['due_date']) ? $_POST['due_date'] : date('Y-m-d');
+        $status = !empty($_POST['status']) ? $_POST['status'] : 'open';
         $description = $_POST['description'];
 
         Project::create($_SESSION['user']['id'], $client, $title, $due_date, $status, $description);

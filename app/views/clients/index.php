@@ -8,7 +8,7 @@
 
 <table class="table table-striped table-hover">
     <thead>
-        <tr>
+        <tr class="table-warning">
             <th>ID</th><th>Name</th><th>Contact</th><th>Email</th><th>Actions</th>
         </tr>
     </thead>
@@ -22,7 +22,7 @@
                 <td><?= htmlspecialchars($client['contact']) ?></td>
                 <td><?= htmlspecialchars($client['email']) ?></td>
                 <td>
-                    <a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>/edit" class="btn btn-info me-2">Edit</a>|<a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>/delete" class="btn btn-danger ms-2">Delete</a>
+                    <a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>/edit" class="btn btn-primary me-2">Edit</a>|<a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>/delete" class="btn btn-danger ms-2">Delete</a>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -32,7 +32,7 @@
 <div class="d-flex justify-content-center align-items-center">
     <a href="<?= BASE_PATH ?>/" class="btn btn-secondary me-2">&lt;&lt; Dashboard</a>
     |
-    <a href="<?= BASE_PATH ?>/clients/create" class="btn btn-secondary ms-2">Add Client</a>
+    <a href="<?= BASE_PATH ?>/clients/create" class="btn btn-primary ms-2">Add Client</a>
 </div>
 
 <?php require_once __DIR__ . '/../layout/footer.php'; ?>

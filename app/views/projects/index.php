@@ -8,7 +8,7 @@
 
 <table class="table table-striped table-hover">
     <thead>
-        <tr>
+        <tr class="table-success">
             <th>ID</th><th>Title</th><th>Client</th><th>Due Date</th><th>Status</th><th>Actions</th>
         </tr>
     </thead>
@@ -29,7 +29,7 @@
                 <td><?= htmlspecialchars($project['due_date']) ?></td>
                 <td><?= htmlspecialchars($project['status']) ?></td>
                 <td>
-                    <a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/edit" class="btn btn-info me-2">Edit</a>|<a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/delete" class="btn btn-danger ms-2">Delete</a>
+                    <a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/edit" class="btn btn-primary me-2">Edit</a>|<a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/delete" class="btn btn-danger ms-2">Delete</a>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -39,7 +39,7 @@
 <div class="d-flex justify-content-center align-items-center">
     <a href="<?= BASE_PATH ?>/" class="btn btn-secondary me-2">&lt;&lt; Dashboard</a>
     |
-    <a href="<?= BASE_PATH ?>/projects/create" class="btn btn-secondary ms-2">Add Project</a>
+    <a href="<?= BASE_PATH ?>/projects/create" class="btn btn-primary ms-2">Add Project</a>
 </div>
 
 <?php require_once __DIR__ . '/../layout/footer.php'; ?>
