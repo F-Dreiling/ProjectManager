@@ -2,7 +2,7 @@
 
 return [
     'app' => [
-        'name' => 'Project Manager CRM',
+        'name' => 'ProjectManager',
         'base_path' => '/projectmanager'
     ],
 
