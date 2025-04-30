@@ -18,7 +18,7 @@
                     <tbody>
                         <tr>
                             <th>Client</th>
-                            <td><input type="text" name="client" placeholder="Client ID" required></td>
+                            <td><input type="number" name="client" placeholder="Client ID" required></td>
                         </tr>
                         <tr>
                             <th>Due Date</th>
@@ -26,7 +26,7 @@
                         </tr>
                         <tr>
                             <th>Status</th>
-                            <td><input type="text" name="status" placeholder="'open', 'in_progress' or 'on_hold'"></td>
+                            <td><input type="text" name="status" placeholder="'open', 'in_progress', 'on_hold'"></td>
                         </tr>
                         <tr>
                             <th>Description</th>
