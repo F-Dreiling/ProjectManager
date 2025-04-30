@@ -15,13 +15,38 @@
                 <h5 class="mb-0"><?= htmlspecialchars($client['name']) ?></h5>
         </div>
         <div class="card-body">
-            <p><strong>Contact Person:</strong> <?= htmlspecialchars($client['contact'] ?? 'N/A') ?></p>
-            <p><strong>Email:</strong> <?= htmlspecialchars($client['email'] ?? 'N/A') ?></p>
-            <p><strong>Phone:</strong> <?= htmlspecialchars($client['phone'] ?? 'N/A') ?></p>
-            <p><strong>Company Name:</strong> <?= htmlspecialchars($client['company'] ?? 'N/A') ?></p>
-            <p><strong>Notes:</strong> <?= htmlspecialchars($client['notes'] ?? 'N/A') ?></p>
-            <p><strong>Created At:</strong> <?= htmlspecialchars($client['created_at']) ?></p>
-            <p><strong>Updated At:</strong> <?= htmlspecialchars($client['updated_at']) ?></p>
+        <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Contact Person</th>
+                        <td><?= htmlspecialchars($client['contact'] ?? 'N/A') ?></td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td><?= htmlspecialchars($client['email'] ?? 'N/A') ?></td>
+                    </tr>
+                    <tr>
+                        <th>Phone</th>
+                        <td><?= htmlspecialchars($client['phone'] ?? 'N/A') ?></td>
+                    </tr>
+                    <tr>
+                        <th>Company Name</th>
+                        <td><?= htmlspecialchars($client['company'] ?? 'N/A') ?></td>
+                    </tr>
+                    <tr>
+                        <th>Notes</th>
+                        <td><?= htmlspecialchars($client['notes'] ?? 'N/A') ?></td>
+                    </tr>
+                    <tr>
+                        <th>Created At</th>
+                        <td><?= htmlspecialchars($client['created_at']) ?></td>
+                    </tr>
+                    <tr>
+                        <th>Updated At</th>
+                        <td><?= htmlspecialchars($client['updated_at']) ?></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

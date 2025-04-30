@@ -16,9 +16,15 @@
         <?php foreach ($projects as $project): ?>
             <tr>
                 <td>
-                    <a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>" class="text-black text-decoration-none"><?= htmlspecialchars($project['title']) ?></a>
+                    <a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>" class="text-black text-decoration-none">
+                        <?= htmlspecialchars($project['title']) ?>
+                    </a>
                 </td>
-                <td><?= htmlspecialchars($project['client_id']) ?></td>
+                <td>
+                    <a href="<?= BASE_PATH ?>/clients/<?= $project['client_id'] ?>" class="text-black text-decoration-none">
+                        <?= htmlspecialchars($client_names[$project['id']]) ?>
+                    </a>
+                </td>
                 <td><?= htmlspecialchars($project['due_date']) ?></td>
                 <td><?= htmlspecialchars($project['status']) ?></td>
                 <td>

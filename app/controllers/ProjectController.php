@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__ . '/../models/Client.php';
 require_once __DIR__ . '/../models/Project.php';
 
 class ProjectController
@@ -7,6 +8,11 @@ class ProjectController
     public function index()
     {
         $projects = Project::all($_SESSION['user']['id']);
+        $client_names = [];
+        foreach ($projects as $project) {
+            $client = Client::find($project['client_id']);
+            $client_names[$project['id']] = $client ? $client['name'] : 'N/A';
+        }
         require_once __DIR__ . '/../views/projects/index.php';
     }
 
@@ -28,6 +34,7 @@ class ProjectController
     public function show($id)
     {
         $project = Project::find($id);
+        $client_name = Client::find($project['client_id'])['name'] ?? 'N/A';
         if (!$project) {
             $_SESSION['error'] = 'Project not found';
             header('Location: ' . BASE_PATH . '/projects');

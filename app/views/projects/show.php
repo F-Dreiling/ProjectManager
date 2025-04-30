@@ -15,12 +15,34 @@
             <h5 class="mb-0"><?= htmlspecialchars($project['title']) ?></h5>
         </div>
         <div class="card-body">
-            <p><strong>Client:</strong> <?= htmlspecialchars($project['client_id']) ?></p>
-            <p><strong>Due Date:</strong> <?= htmlspecialchars($project['due_date'] ?? 'N/A') ?></p>
-            <p><strong>Status:</strong> <?= htmlspecialchars($project['status']) ?></p>
-            <p><strong>Description:</strong> <?= htmlspecialchars($project['description'] ?? 'N/A') ?></p>
-            <p><strong>Created At:</strong> <?= htmlspecialchars($project['created_at']) ?></p>
-            <p><strong>Updated At:</strong> <?= htmlspecialchars($project['updated_at']) ?></p>
+        <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Client</th>
+                        <td><?= htmlspecialchars($client_name) ?></td>
+                    </tr>
+                    <tr>
+                        <th>Due Date</th>
+                        <td><?= htmlspecialchars($project['due_date'] ?? 'N/A') ?></td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td><?= htmlspecialchars($project['status']) ?></td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td><?= htmlspecialchars($project['description'] ?? 'N/A') ?></td>
+                    </tr>
+                    <tr>
+                        <th>Created At</th>
+                        <td><?= htmlspecialchars($project['created_at']) ?></td>
+                    </tr>
+                    <tr>
+                        <th>Updated At</th>
+                        <td><?= htmlspecialchars($project['updated_at']) ?></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
