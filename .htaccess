@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Tell Apache you are in /projectmanager
+RewriteBase /projectmanager/
+
+# If the file or folder does not exist, route to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
