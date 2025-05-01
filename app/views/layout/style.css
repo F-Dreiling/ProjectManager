@@ -40,3 +40,7 @@ body {
     --bs-table-bg: #ffc107; /* Bootstrap's warning yellow */
     --bs-table-color: white;
 }
+
+.table tbody tr:nth-of-type(odd) {
+    --bs-table-striped-bg: #f8f9fa; /* Bootstrap's bg-light color for subtle striping */
+}
