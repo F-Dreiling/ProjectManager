@@ -96,10 +96,32 @@ class ClientController
         return;
     }
 
+    public function check($id)
+    {
+        $client = Client::find($id);
+        if (!$client || $client['user_id'] != $_SESSION['user']['id']) {
+            $_SESSION['error'] = 'Client not found';
+
+            header('Location: ' . BASE_PATH . '/clients');
+            return;
+        }
+        
+        require_once __DIR__ . '/../views/clients/delete.php';
+    }
+
     public function delete($id)
     {
+        $client = Client::find($id);
+        if (!$client || $client['user_id'] != $_SESSION['user']['id']) {
+            $_SESSION['error'] = 'Client not found';
+
+            header('Location: ' . BASE_PATH . '/clients');
+            return;
+        }
+
         Client::delete($id);
         $_SESSION['success'] = 'Client deleted successfully';
+
         header('Location: ' . BASE_PATH . '/clients');
         return;
     }

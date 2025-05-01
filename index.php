@@ -27,7 +27,7 @@ $router->add('POST', '/clients/store', 'ClientController@store');
 $router->add('GET', '/clients/{id}', 'ClientController@show');
 $router->add('GET', '/clients/{id}/edit', 'ClientController@edit');
 $router->add('POST', '/clients/{id}/update', 'ClientController@update');
-$router->add('GET', '/clients/{id}/delete', 'ClientController@delete');
+$router->add('GET', '/clients/{id}/delete', 'ClientController@check');
 $router->add('POST', '/clients/{id}/delete', 'ClientController@delete');
 
 $router->add('GET', '/projects', 'ProjectController@index');
@@ -36,7 +36,7 @@ $router->add('POST', '/projects/store', 'ProjectController@store');
 $router->add('GET', '/projects/{id}', 'ProjectController@show');
 $router->add('GET', '/projects/{id}/edit', 'ProjectController@edit');
 $router->add('POST', '/projects/{id}/update', 'ProjectController@update');
-$router->add('GET', '/projects/{id}/delete', 'ProjectController@delete');
+$router->add('GET', '/projects/{id}/delete', 'ProjectController@check');
 $router->add('POST', '/projects/{id}/delete', 'ProjectController@delete');
 
 $router->add('GET', '/', 'DashboardController@index');

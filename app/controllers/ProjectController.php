@@ -117,8 +117,31 @@ class ProjectController
         return;
     }
 
+    public function check($id)
+    {
+        $project = Project::find($id);
+        if (!$project || $project['user_id'] != $_SESSION['user']['id']) {
+            $_SESSION['error'] = 'Project not found';
+
+            header('Location: ' . BASE_PATH . '/projects');
+            return;
+        }
+
+        $client_name = Client::find($project['client_id'])['name'] ?? 'N/A';
+        
+        require_once __DIR__ . '/../views/projects/delete.php';
+    }
+
     public function delete($id)
     {
+        $project = Project::find($id);
+        if (!$project || $project['user_id'] != $_SESSION['user']['id']) {
+            $_SESSION['error'] = 'Project not found';
+
+            header('Location: ' . BASE_PATH . '/projects');
+            return;
+        }
+
         Project::delete($id);
         $_SESSION['success'] = 'Project deleted successfully';
 
