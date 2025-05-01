@@ -35,11 +35,11 @@ class Project
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public static function update($id, $title, $description)
+    public static function update($id, $client, $title, $due_date, $status, $description)
     {
         $db = Database::connect();
-        $stmt = $db->prepare('UPDATE projects SET title = ?, description = ?, updated_at = NOW() WHERE id = ?');
-        $stmt->execute([$title, $description, $id]);
+        $stmt = $db->prepare('UPDATE projects SET client_id = ?, title = ?, due_date = ?, status = ?, description = ?, updated_at = NOW() WHERE id = ?');
+        $stmt->execute([$client, $title, $due_date, $status, $description, $id]);
     }
 
     public static function delete($id)

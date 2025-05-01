@@ -35,11 +35,11 @@ class Client
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public static function update($id, $name, $email)
+    public static function update($id, $name, $contact, $email, $phone, $company, $notes)
     {
         $db = Database::connect();
-        $stmt = $db->prepare('UPDATE clients SET name = ?, email = ?, updated_at = NOW() WHERE id = ?');
-        $stmt->execute([$name, $email, $id]);
+        $stmt = $db->prepare('UPDATE clients SET name = ?, contact = ?, email = ?, phone = ?, company = ?, notes = ?, updated_at = NOW() WHERE id = ?');
+        $stmt->execute([$name, $contact, $email, $phone, $company, $notes, $id]);
     }
 
     public static function delete($id)

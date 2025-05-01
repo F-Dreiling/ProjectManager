@@ -7,12 +7,12 @@
     <div class="col-md-6">
         <div class="card mb-4 dr-shadow">
             <div class="card-header bg-warning">
-                <a class="text-white text-decoration-none fw-bold fs-5" href="<?= BASE_PATH ?>/clients">Latest Clients</a>
+                <a class="d-flex text-white text-decoration-none fw-bold fs-5" href="<?= BASE_PATH ?>/clients">Latest Clients</a>
             </div>
             <ul class="list-group list-group-flush">
                 <?php foreach ($latestClients as $client): ?>
                     <li class="list-group-item list-group-item-action">
-                        <a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>" class="text-black text-decoration-none">
+                        <a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>" class="d-flex text-black text-decoration-none">
                             <?= htmlspecialchars($client['name']) ?> (<?= htmlspecialchars($client['contact']) ?>)
                         </a>
                     </li>
@@ -24,12 +24,12 @@
     <div class="col-md-6">
         <div class="card mb-4 dr-shadow">
             <div class="card-header bg-success">
-                <a class="text-white text-decoration-none fw-bold fs-5" href="<?= BASE_PATH ?>/projects">Latest Projects</a>
+                <a class="d-flex text-white text-decoration-none fw-bold fs-5" href="<?= BASE_PATH ?>/projects">Latest Projects</a>
             </div>
             <ul class="list-group list-group-flush">
                 <?php foreach ($latestProjects as $project): ?>
                     <li class="list-group-item list-group-item-action">
-                        <a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>" class="text-black text-decoration-none">
+                        <a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>" class="d-flex text-black text-decoration-none">
                             <?= htmlspecialchars($project['title']) ?> (<?= htmlspecialchars($project['status']) ?>)
                         </a>
                     </li>

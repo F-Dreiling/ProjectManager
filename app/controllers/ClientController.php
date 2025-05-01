@@ -20,6 +20,7 @@ class ClientController
     {
         if (!isset($_POST['name'])) {
             $_SESSION['error'] = 'Name is required';
+
             header('Location: ' . BASE_PATH . '/clients/create');
             return;
         }
@@ -33,6 +34,7 @@ class ClientController
 
         Client::create($_SESSION['user']['id'], $name, $contact, $email, $phone, $company, $notes);
         $_SESSION['success'] = 'Client created successfully';
+
         header('Location: ' . BASE_PATH . '/clients');
         return;
     }
@@ -40,8 +42,9 @@ class ClientController
     public function show($id)
     {
         $client = Client::find($id);
-        if (!$client) {
+        if (!$client || $client['user_id'] != $_SESSION['user']['id']) {
             $_SESSION['error'] = 'Client not found';
+
             header('Location: ' . BASE_PATH . '/clients');
             return;
         }
@@ -52,23 +55,45 @@ class ClientController
     public function edit($id)
     {
         $client = Client::find($id);
-        if (!$client) {
-            $_SESSION['error'] = 'Project not found';
-            header('Location: ' . BASE_PATH . '/clients');
-            return;
-        }
+        if (!$client || $client['user_id'] != $_SESSION['user']['id']) {
+            $_SESSION['error'] = 'Client not found';
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-
-            Client::update($id, $name, $email);
-            $_SESSION['success'] = 'Client created successfully';
             header('Location: ' . BASE_PATH . '/clients');
             return;
         }
 
         require_once __DIR__ . '/../views/clients/edit.php';
+    }
+
+    public function update($id)
+    {
+        if (!isset($_POST['name'])) {
+            $_SESSION['error'] = 'Name is required';
+
+            header('Location: ' . BASE_PATH . '/clients/' . $id . '/edit');
+            return;
+        }
+
+        $client = Client::find($id);
+        if (!$client || $client['user_id'] != $_SESSION['user']['id']) {
+            $_SESSION['error'] = 'Client not found';
+
+            header('Location: ' . BASE_PATH . '/clients');
+            return;
+        }
+
+        $name = $_POST['name'];
+        $contact = $_POST['contact'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $company = $_POST['company'];
+        $notes = $_POST['notes'];
+
+        Client::update($id, $name, $contact, $email, $phone, $company, $notes);
+        $_SESSION['success'] = 'Client updated successfully';
+
+        header('Location: ' . BASE_PATH . '/clients');
+        return;
     }
 
     public function delete($id)
