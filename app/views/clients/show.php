@@ -52,9 +52,7 @@
 </div>
 
 <div class="d-flex justify-content-center align-items-center">
-    <a href="<?= BASE_PATH ?>/" class="btn btn-secondary dr-shadow me-2">&lt;&lt; Dashboard</a>
-    |
-    <a href="<?= BASE_PATH ?>/clients" class="btn bg-warning text-white dr-shadow mx-2">Clients</a>
+    <a href="<?= BASE_PATH ?>/clients" class="btn btn-secondary dr-shadow me-2">&lt;&lt; Back</a>
     |
     <a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>/edit" class="btn btn-primary dr-shadow mx-2">Edit</a>
     |

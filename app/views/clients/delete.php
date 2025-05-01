@@ -36,7 +36,7 @@
 </div>
 
 <div class="d-flex justify-content-center align-items-center">
-    <a href="<?= BASE_PATH ?>/clients" class="btn btn-secondary dr-shadow me-2">Cancel</a>
+    <a href="<?= BASE_PATH ?>/clients" class="btn btn-secondary dr-shadow me-2">&lt;&lt; Cancel</a>
     |
     <form method="POST" action="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>/delete" class="d-inline">
         <button type="submit" class="btn btn-danger dr-shadow ms-2">Delete</button>
