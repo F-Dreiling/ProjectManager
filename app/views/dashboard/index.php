@@ -5,7 +5,7 @@
 
 <div class="row">
     <div class="col-md-6">
-        <div class="card mb-4 shadow">
+        <div class="card mb-4 dr-shadow">
             <div class="card-header bg-warning">
                 <a class="text-white text-decoration-none fw-bold fs-5" href="<?= BASE_PATH ?>/clients">Latest Clients</a>
             </div>
@@ -22,7 +22,7 @@
     </div>
 
     <div class="col-md-6">
-        <div class="card mb-4 shadow">
+        <div class="card mb-4 dr-shadow">
             <div class="card-header bg-success">
                 <a class="text-white text-decoration-none fw-bold fs-5" href="<?= BASE_PATH ?>/projects">Latest Projects</a>
             </div>

@@ -10,7 +10,7 @@
 <h2 class="mb-4">&gt;&gt;</h2>
 
 <div class="d-flex justify-content-center">
-    <div class="card shadow mb-4 w-50">
+    <div class="card dr-shadow mb-4 w-50">
         <div class="card-header bg-warning text-white">
             <h5 class="mb-0">#<?= htmlspecialchars($client['id']) ?> <?= htmlspecialchars($client['name']) ?></h5>
         </div>
@@ -52,13 +52,13 @@
 </div>
 
 <div class="d-flex justify-content-center align-items-center">
-    <a href="<?= BASE_PATH ?>/" class="btn btn-secondary shadow me-2">&lt;&lt; Dashboard</a>
+    <a href="<?= BASE_PATH ?>/" class="btn btn-secondary dr-shadow me-2">&lt;&lt; Dashboard</a>
     |
-    <a href="<?= BASE_PATH ?>/clients" class="btn bg-warning text-white shadow mx-2">Clients</a>
+    <a href="<?= BASE_PATH ?>/clients" class="btn bg-warning text-white dr-shadow mx-2">Clients</a>
     |
-    <a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>/edit" class="btn btn-primary shadow mx-2">Edit</a>
+    <a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>/edit" class="btn btn-primary dr-shadow mx-2">Edit</a>
     |
-    <a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>/delete" class="btn btn-danger shadow ms-2">Delete</a>
+    <a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>/delete" class="btn btn-danger dr-shadow ms-2">Delete</a>
 </div>
 
 <?php require __DIR__ . '/../layout/footer.php'; ?>

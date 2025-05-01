@@ -31,7 +31,7 @@ class Router
                 array_shift($matches); // Remove the full match so only {id} is in matches array
 
                 list($controllerName, $methodName) = explode('@', $action);
-
+                
                 $controllerPath = __DIR__ . '/../controllers/' . $controllerName . '.php';
                 if (!file_exists($controllerPath)) {
                     http_response_code(500);
@@ -48,7 +48,10 @@ class Router
                     exit;
                 }
 
+                $_SESSION['controller'] = $controllerName; // Store the controller name in session
+
                 $controller->$methodName(...$matches); // Pass dynamic parameters to the method
+                
                 return;
             }
         }

@@ -7,7 +7,7 @@
 
 <form method="POST" action="<?= BASE_PATH ?>/clients/store">
     <div class="d-flex justify-content-center">
-        <div class="card shadow mb-4 w-50">
+        <div class="card dr-shadow mb-4 w-50">
             <div class="card-header bg-warning text-white">
                 <h5 class="mb-0">
                     <input type="text" name="name" placeholder="Client Name" required>
@@ -42,9 +42,9 @@
         </div>
     </div>
     <div class="d-flex justify-content-center align-items-center">
-        <a href="<?= BASE_PATH ?>/clients" class="btn btn-secondary me-2">Cancel</a>
+        <a href="<?= BASE_PATH ?>/clients" class="btn btn-secondary dr-shadow me-2">Cancel</a>
         |
-        <button type="submit" class="btn btn-primary ms-2">Save</button>
+        <button type="submit" class="btn btn-primary dr-shadow ms-2">Save</button>
     </div>
 </form>
 
