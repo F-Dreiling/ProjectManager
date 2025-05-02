@@ -10,7 +10,7 @@
         <div class="card dr-shadow mb-4 w-50">
             <div class="card-header bg-success text-white">
                 <h5 class="mb-0">
-                    <input type="text" name="title" class="w-100" placeholder="Project Title" required>
+                    <input type="text" name="title" class="form-control w-100" placeholder="Project Title" required>
                 </h5>
             </div>
             <div class="card-body">
@@ -19,13 +19,13 @@
                         <tr>
                             <th>Client</th>
                             <td>
-                                <input type="text" name="client" class="auto_client w-75" placeholder="Client Name" required>
+                                <input type="text" name="client" class="auto_client form-control w-75" placeholder="Client Name" required>
                             </td>
                         </tr>
                         <tr>
                             <th>Due Date</th>
                             <td>
-                                <input type="date" name="due_date" class="w-75" placeholder="Due Date">
+                                <input type="date" name="due_date" class="form-control w-75" placeholder="Due Date">
                             </td>
                         </tr>
                         <tr>

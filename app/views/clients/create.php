@@ -10,7 +10,7 @@
         <div class="card dr-shadow mb-4 w-50">
             <div class="card-header bg-warning text-white">
                 <h5 class="mb-0">
-                    <input type="text" name="name" class="w-100" placeholder="Client Name" required>
+                    <input type="text" name="name" class="form-control w-100" placeholder="Client Name" required>
                 </h5>
             </div>
             <div class="card-body">
@@ -19,25 +19,25 @@
                         <tr>
                             <th>Contact</th>
                             <td>
-                                <input type="text" name="contact" class="w-75" placeholder="Contact Person">
+                                <input type="text" name="contact" class="form-control w-75" placeholder="Contact Person">
                             </td>
                         </tr>
                         <tr>
                             <th>Email</th>
                             <td>
-                                <input type="text" name="email" class="w-75" placeholder="Email Address">
+                                <input type="text" name="email" class="form-control w-75" placeholder="Email Address">
                             </td>
                         </tr>
                         <tr>
                             <th>Phone</th>
                             <td>
-                                <input type="text" name="phone" class="w-75" placeholder="Phone Number">
+                                <input type="text" name="phone" class="form-control w-75" placeholder="Phone Number">
                             </td>
                         </tr>
                         <tr>
                             <th>Company</th>
                             <td>
-                                <input type="text" name="company" class="w-75" placeholder="Company Name">
+                                <input type="text" name="company" class="form-control w-75" placeholder="Company Name">
                             </td>
                         </tr>
                         <tr>

@@ -30,8 +30,12 @@
                         <td><?= htmlspecialchars($project['due_date'] ?? 'N/A') ?></td>
                     </tr>
                     <tr>
-                        <th>Status</th>
-                        <td><?= htmlspecialchars($project['status']) ?></td>
+                        <th class="align-middle">Status</th>
+                        <td>
+                            <div class="dr-tag">
+                                <?= htmlspecialchars($project['status']) ?>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <th>Description</th>

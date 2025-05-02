@@ -30,7 +30,9 @@
                         <?= htmlspecialchars($project['due_date']) ?>
                 </td>
                 <td>
+                    <div class="dr-tag">
                         <?= htmlspecialchars($project['status']) ?>
+                    </div>
                 </td>
                 <td class="position-relative">
                     <a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/edit" class="btn btn-primary dr-btn-table me-2">Edit</a>|<a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/delete" class="btn btn-danger dr-btn-table ms-2">Delete</a>
