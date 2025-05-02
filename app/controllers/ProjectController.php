@@ -11,7 +11,7 @@ class ProjectController
 
         $client_names = [];
         foreach ($projects as $project) {
-            $client = Client::find($project['client_id']);
+            $client = Client::find($_SESSION['user']['id'], $project['client_id']);
             $client_names[$project['id']] = $client ? $client['name'] : 'N/A';
         }
 
@@ -42,7 +42,7 @@ class ProjectController
             return;
         }
 
-        $client = Client::find($client_id)['id'];
+        $client = Client::find($_SESSION['user']['id'], $client_id)['id'];
         if (!$client) {
             $_SESSION['error'] = 'Client not found';
 
@@ -64,15 +64,15 @@ class ProjectController
 
     public function show($id)
     {
-        $project = Project::find($id);
-        if (!$project || $project['user_id'] != $_SESSION['user']['id']) {
+        $project = Project::find($_SESSION['user']['id'], $id);
+        if (!$project) {
             $_SESSION['error'] = 'Project not found';
 
             header('Location: ' . BASE_PATH . '/projects');
             return;
         }
 
-        $client = Client::find($project['client_id']);
+        $client = Client::find($_SESSION['user']['id'], $project['client_id']);
         if (!$client ) {
             $_SESSION['error'] = 'Client not found';
 
@@ -88,15 +88,15 @@ class ProjectController
 
     public function edit($id)
     {
-        $project = Project::find($id);
-        if (!$project || $project['user_id'] != $_SESSION['user']['id']) {
+        $project = Project::find($_SESSION['user']['id'], $id);
+        if (!$project) {
             $_SESSION['error'] = 'Project not found';
 
             header('Location: ' . BASE_PATH . '/projects');
             return;
         }
 
-        $client = Client::find($project['client_id']);
+        $client = Client::find($_SESSION['user']['id'], $project['client_id']);
         if (!$client) {
             $_SESSION['error'] = 'Client not found';
 
@@ -119,7 +119,7 @@ class ProjectController
             return;
         }
 
-        $project = Project::find($id);
+        $project = Project::find($_SESSION['user']['id'], $id);
         if (!$project || $project['user_id'] != $_SESSION['user']['id']) {
             $_SESSION['error'] = 'Project not found';
 
@@ -137,7 +137,7 @@ class ProjectController
             return;
         }
 
-        $client = Client::find($client_id)['id'];
+        $client = Client::find($_SESSION['user']['id'], $client_id)['id'];
         if (!$client) {
             $_SESSION['error'] = 'Client not found';
 
@@ -159,7 +159,7 @@ class ProjectController
 
     public function check($id)
     {
-        $project = Project::find($id);
+        $project = Project::find($_SESSION['user']['id'], $id);
         if (!$project || $project['user_id'] != $_SESSION['user']['id']) {
             $_SESSION['error'] = 'Project not found';
 
@@ -167,14 +167,14 @@ class ProjectController
             return;
         }
 
-        $client_name = Client::find($project['client_id'])['name'] ?? 'N/A';
+        $client_name = Client::find($_SESSION['user']['id'], $project['client_id'])['name'] ?? 'N/A';
         
         require_once __DIR__ . '/../views/projects/delete.php';
     }
 
     public function delete($id)
     {
-        $project = Project::find($id);
+        $project = Project::find($_SESSION['user']['id'], $id);
         if (!$project || $project['user_id'] != $_SESSION['user']['id']) {
             $_SESSION['error'] = 'Project not found';
 

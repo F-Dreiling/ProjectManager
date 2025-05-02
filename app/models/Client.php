@@ -27,20 +27,12 @@ class Client
         $stmt->execute([$user_id, $name, $email, $phone, $contact, $company, $notes]);
     }
 
-    public static function find($id)
+    public static function find($user_id, $id)
     {
         $db = Database::connect();
-        $stmt = $db->prepare('SELECT * FROM clients WHERE id = ?');
-        $stmt->execute([$id]);
+        $stmt = $db->prepare('SELECT * FROM clients WHERE id = ? AND user_id = ?');
+        $stmt->execute([$id, $user_id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-
-    public static function findByName($user_id, $term)
-    {
-        $db = Database::connect();
-        $stmt = $db->prepare('SELECT id, name FROM clients WHERE user_id = ? AND name LIKE ? LIMIT 10');
-        $stmt->execute([$user_id, "%$term%"]);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public static function update($id, $name, $contact, $email, $phone, $company, $notes)
@@ -55,6 +47,14 @@ class Client
         $db = Database::connect();
         $stmt = $db->prepare('DELETE FROM clients WHERE id = ?');
         $stmt->execute([$id]);
+    }
+
+    public static function findByName($user_id, $term)
+    {
+        $db = Database::connect();
+        $stmt = $db->prepare('SELECT id, name FROM clients WHERE user_id = ? AND (name LIKE ? OR id = ?) LIMIT 10');
+        $stmt->execute([$user_id, "%$term%", $term]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 

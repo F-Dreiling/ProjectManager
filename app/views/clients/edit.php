@@ -16,7 +16,7 @@
         <div class="card dr-shadow mb-4 w-50">
             <div class="card-header bg-warning text-white">
                 <h5 class="mb-0">
-                    <input type="text" name="name" placeholder="Client Name" value="<?= htmlspecialchars($client['name']) ?>" required>
+                    <input type="text" name="name" class="w-100" placeholder="Client Name" value="<?= htmlspecialchars($client['name']) ?>" required>
                 </h5>
             </div>
             <div class="card-body">
@@ -24,23 +24,33 @@
                     <tbody>
                         <tr>
                             <th>Contact</th>
-                            <td><input type="text" name="contact" value="<?= htmlspecialchars($client['contact']) ?>"></td>
+                            <td>
+                                <input type="text" name="contact" class="w-75" value="<?= htmlspecialchars($client['contact']) ?>">
+                            </td>
                         </tr>
                         <tr>
                             <th>Email</th>
-                            <td><input type="text" name="email" value="<?= htmlspecialchars($client['email']) ?>"></td>
+                            <td>
+                                <input type="text" name="email" class="w-75" value="<?= htmlspecialchars($client['email']) ?>">
+                            </td>
                         </tr>
                         <tr>
                             <th>Phone</th>
-                            <td><input type="text" name="phone" value="<?= htmlspecialchars($client['phone']) ?>"></td>
+                            <td>
+                                <input type="text" name="phone" class="w-75" value="<?= htmlspecialchars($client['phone']) ?>">
+                            </td>
                         </tr>
                         <tr>
                             <th>Company</th>
-                            <td><input type="text" name="company" value="<?= htmlspecialchars($client['company']) ?>"></td>
+                            <td>
+                                <input type="text" name="company" class="w-75" value="<?= htmlspecialchars($client['company']) ?>">
+                            </td>
                         </tr>
                         <tr>
                             <th>Notes</th>
-                            <td><input type="text" name="notes" value="<?= htmlspecialchars($client['notes']) ?>"></td>
+                            <td>
+                                <textarea name="notes" class="form-control w-75" rows="4"><?= htmlspecialchars($client['notes']) ?></textarea>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

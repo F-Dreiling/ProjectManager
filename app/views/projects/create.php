@@ -10,7 +10,7 @@
         <div class="card dr-shadow mb-4 w-50">
             <div class="card-header bg-success text-white">
                 <h5 class="mb-0">
-                    <input type="text" name="title" placeholder="Project Title" required>
+                    <input type="text" name="title" class="w-100" placeholder="Project Title" required>
                 </h5>
             </div>
             <div class="card-body">
@@ -18,19 +18,34 @@
                     <tbody>
                         <tr>
                             <th>Client</th>
-                            <td><input type="text" name="client" class="auto_client" placeholder="Client Name" required></td>
+                            <td>
+                                <input type="text" name="client" class="auto_client w-75" placeholder="Client Name" required>
+                            </td>
                         </tr>
                         <tr>
                             <th>Due Date</th>
-                            <td><input type="date" name="due_date" placeholder="Due Date"></td>
+                            <td>
+                                <input type="date" name="due_date" class="w-75" placeholder="Due Date">
+                            </td>
                         </tr>
                         <tr>
                             <th>Status</th>
-                            <td><input type="text" name="status" placeholder="'open', 'in_progress', 'on_hold'"></td>
+                            <td>
+                                <select name="status" class="form-select w-75">
+                                    <option value="open" selected>Open</option>
+                                    <option value="in_progress">In Progress</option>
+                                    <option value="on_hold" >On Hold</option>
+                                    <option value="completed">Completed</option>
+                                    <option value="finalized">Finalized</option>
+                                    <option value="cancelled">Cancelled</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <th>Description</th>
-                            <td><input type="text" name="description" placeholder="Project Description"></td>
+                            <td>
+                                <textarea name="description" class="form-control w-75" rows="4" placeholder="Project Description"></textarea>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -50,7 +65,7 @@
 
         $('.auto_client').autocomplete({
             source: "<?= BASE_PATH ?>/clients/autocomplete",
-            minLength: 2,
+            minLength: 1,
         });
 
     });

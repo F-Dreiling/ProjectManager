@@ -41,8 +41,8 @@ class ClientController
 
     public function show($id)
     {
-        $client = Client::find($id);
-        if (!$client || $client['user_id'] != $_SESSION['user']['id']) {
+        $client = Client::find($_SESSION['user']['id'], $id);
+        if (!$client) {
             $_SESSION['error'] = 'Client not found';
 
             header('Location: ' . BASE_PATH . '/clients');
@@ -54,8 +54,8 @@ class ClientController
 
     public function edit($id)
     {
-        $client = Client::find($id);
-        if (!$client || $client['user_id'] != $_SESSION['user']['id']) {
+        $client = Client::find($_SESSION['user']['id'], $id);
+        if (!$client) {
             $_SESSION['error'] = 'Client not found';
 
             header('Location: ' . BASE_PATH . '/clients');
@@ -74,8 +74,8 @@ class ClientController
             return;
         }
 
-        $client = Client::find($id);
-        if (!$client || $client['user_id'] != $_SESSION['user']['id']) {
+        $client = Client::find($_SESSION['user']['id'], $id);
+        if (!$client) {
             $_SESSION['error'] = 'Client not found';
 
             header('Location: ' . BASE_PATH . '/clients');
@@ -98,8 +98,8 @@ class ClientController
 
     public function check($id)
     {
-        $client = Client::find($id);
-        if (!$client || $client['user_id'] != $_SESSION['user']['id']) {
+        $client = Client::find($_SESSION['user']['id'], $id);
+        if (!$client) {
             $_SESSION['error'] = 'Client not found';
 
             header('Location: ' . BASE_PATH . '/clients');
@@ -111,8 +111,8 @@ class ClientController
 
     public function delete($id)
     {
-        $client = Client::find($id);
-        if (!$client || $client['user_id'] != $_SESSION['user']['id']) {
+        $client = Client::find($_SESSION['user']['id'], $id);
+        if (!$client) {
             $_SESSION['error'] = 'Client not found';
 
             header('Location: ' . BASE_PATH . '/clients');

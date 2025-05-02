@@ -27,11 +27,11 @@ class Project
         $stmt->execute([$client_id, $user_id, $title, $description, $status, $due_date]);
     }
 
-    public static function find($id)
+    public static function find($user_id, $id)
     {
         $db = Database::connect();
-        $stmt = $db->prepare('SELECT * FROM projects WHERE id = ?');
-        $stmt->execute([$id]);
+        $stmt = $db->prepare('SELECT * FROM projects WHERE id = ? AND user_id = ?');
+        $stmt->execute([$id, $user_id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
