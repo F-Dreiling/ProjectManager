@@ -32,7 +32,17 @@ class ProjectController
             return;
         }
 
-        $client = Client::find($_POST['client'])['id'];
+        if (preg_match('/^\d+/', $_POST['client'], $matches)) {
+            $client_id = $matches[0];
+        }
+        else {
+            $_SESSION['error'] = 'Invalid client format';
+    
+            header('Location: ' . BASE_PATH . '/projects/create');
+            return;
+        }
+
+        $client = Client::find($client_id)['id'];
         if (!$client) {
             $_SESSION['error'] = 'Client not found';
 
@@ -62,7 +72,16 @@ class ProjectController
             return;
         }
 
-        $client_name = Client::find($project['client_id'])['name'] ?? 'N/A';
+        $client = Client::find($project['client_id']);
+        if (!$client ) {
+            $_SESSION['error'] = 'Client not found';
+
+            header('Location: ' . BASE_PATH . '/projects/create');
+            return;
+        }
+        else {
+            $client_name = $client['name'] ?? 'N/A';
+        }
 
         require_once __DIR__ . '/../views/projects/show.php';
     }
@@ -75,6 +94,17 @@ class ProjectController
 
             header('Location: ' . BASE_PATH . '/projects');
             return;
+        }
+
+        $client = Client::find($project['client_id']);
+        if (!$client) {
+            $_SESSION['error'] = 'Client not found';
+
+            header('Location: ' . BASE_PATH . '/projects/create');
+            return;
+        }
+        else {
+            $client_name = $client['name'] ?? 'N/A';
         }
 
         require_once __DIR__ . '/../views/projects/edit.php';
@@ -97,7 +127,17 @@ class ProjectController
             return;
         }
 
-        $client = Client::find($_POST['client'])['id'];
+        if (preg_match('/^\d+/', $_POST['client'], $matches)) {
+            $client_id = $matches[0];
+        }
+        else {
+            $_SESSION['error'] = 'Invalid client format';
+    
+            header('Location: ' . BASE_PATH . '/projects/create');
+            return;
+        }
+
+        $client = Client::find($client_id)['id'];
         if (!$client) {
             $_SESSION['error'] = 'Client not found';
 

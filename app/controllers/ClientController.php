@@ -125,6 +125,23 @@ class ClientController
         header('Location: ' . BASE_PATH . '/clients');
         return;
     }
+
+    public function autocomplete()
+    {
+        $term = $_GET['term'] ?? '';
+        if (empty($term)) {
+            echo json_encode([]);
+            return;
+        }
+
+        $clients = Client::findByName($_SESSION['user']['id'], $term);
+
+        $results = array_map(function ($client) {
+            return $client['id']." ".$client['name'];
+        }, $clients);
+
+        echo json_encode($results);
+    }
 }
 
 ?>

@@ -24,7 +24,7 @@
                     <tbody>
                         <tr>
                             <th>Client</th>
-                            <td><input type="number" name="client" value="<?= htmlspecialchars($project['client_id']) ?>" required></td>
+                            <td><input type="text" name="client" class="auto_client" value="<?= htmlspecialchars($project['client_id'])." ".htmlspecialchars($client_name) ?>" required></td>
                         </tr>
                         <tr>
                             <th>Due Date</th>

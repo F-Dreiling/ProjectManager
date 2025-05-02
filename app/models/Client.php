@@ -35,6 +35,14 @@ class Client
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public static function findByName($user_id, $term)
+    {
+        $db = Database::connect();
+        $stmt = $db->prepare('SELECT id, name FROM clients WHERE user_id = ? AND name LIKE ? LIMIT 10');
+        $stmt->execute([$user_id, "%$term%"]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public static function update($id, $name, $contact, $email, $phone, $company, $notes)
     {
         $db = Database::connect();

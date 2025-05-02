@@ -18,7 +18,7 @@
                     <tbody>
                         <tr>
                             <th>Client</th>
-                            <td><input type="number" name="client" placeholder="Client ID" required></td>
+                            <td><input type="text" name="client" class="auto_client" placeholder="Client Name" required></td>
                         </tr>
                         <tr>
                             <th>Due Date</th>
@@ -43,5 +43,18 @@
         <button type="submit" class="btn btn-primary dr-shadow ms-2">Save</button>
     </div>
 </form>
+
+<script type="text/javascript">
+
+    $(document).ready( function() {
+
+        $('.auto_client').autocomplete({
+            source: "<?= BASE_PATH ?>/clients/autocomplete",
+            minLength: 2,
+        });
+
+    });
+
+</script>
 
 <?php require_once __DIR__ . '/../layout/footer.php'; ?>

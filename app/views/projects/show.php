@@ -21,7 +21,7 @@
                         <th>Client</th>
                         <td>
                             <a href="<?= BASE_PATH ?>/clients/<?= $project['client_id'] ?>" class="text-decoration-none text-black">
-                                #<?= htmlspecialchars($project['client_id']) ?> <?= htmlspecialchars($client_name) ?>
+                                #<?= htmlspecialchars($project['client_id'])." ".htmlspecialchars($client_name) ?>
                             </a>
                         </td>
                     </tr>
