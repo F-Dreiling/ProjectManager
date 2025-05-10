@@ -15,27 +15,27 @@
     <tbody>
         <?php foreach ($projects as $project): ?>
             <tr class="position-relative">
-                <td>
+                <td class="align-middle">
                     <a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>" class="text-black text-decoration-none stretched-link">
                         <?= htmlspecialchars($project['id']) ?>
                     </a>
                 </td>
-                <td>
+                <td class="align-middle">
                         <?= htmlspecialchars($project['title']) ?>
                 </td>
-                <td>
+                <td class="align-middle">
                         <?= htmlspecialchars($client_names[$project['id']]) ?>
                 </td>
-                <td>
+                <td class="align-middle">
                         <?= htmlspecialchars($project['due_date']) ?>
                 </td>
                 <td>
                     <div class="dr-tag">
-                        <?= htmlspecialchars($project['status']) ?>
+                        <?= htmlspecialchars($statuses[$project['status']]) ?>
                     </div>
                 </td>
-                <td class="position-relative">
-                    <a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/edit" class="btn btn-primary dr-btn-table me-2">Edit</a>|<a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/delete" class="btn btn-danger dr-btn-table ms-2">Delete</a>
+                <td>
+                    <a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/edit" class="btn btn-primary dr-btn-table me-2">Edit</a><a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/delete" class="btn btn-danger dr-btn-table ms-2">Delete</a>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -44,7 +44,6 @@
 
 <div class="d-flex justify-content-center align-items-center">
     <a href="<?= BASE_PATH ?>/" class="btn btn-secondary dr-shadow me-2">&lt;&lt; Dashboard</a>
-    |
     <a href="<?= BASE_PATH ?>/projects/create" class="btn btn-primary dr-shadow ms-2">Add Project</a>
 </div>
 

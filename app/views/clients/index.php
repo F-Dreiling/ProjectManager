@@ -15,22 +15,22 @@
     <tbody>
         <?php foreach ($clients as $client): ?>
             <tr class="position-relative">
-                <td>
+                <td class="align-middle">
                     <a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>" class="text-decoration-none text-black stretched-link">
                         <?= htmlspecialchars($client['id']) ?>
                     </a>
                 </td>
-                <td>
+                <td class="align-middle">
                         <?= htmlspecialchars($client['name']) ?>
                 </td>
-                <td>
+                <td class="align-middle">
                         <?= htmlspecialchars($client['contact']) ?>
                 </td>
-                <td>
+                <td class="align-middle">
                         <?= htmlspecialchars($client['email']) ?>
                 </td>
-                <td class="position-relative">
-                    <a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>/edit" class="btn btn-primary dr-btn-table me-2">Edit</a>|<a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>/delete" class="btn btn-danger dr-btn-table ms-2">Delete</a>
+                <td>
+                    <a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>/edit" class="btn btn-primary dr-btn-table me-2">Edit</a><a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>/delete" class="btn btn-danger dr-btn-table ms-2">Delete</a>
                 </td>
             </tr>
         <?php endforeach; ?>
@@ -39,7 +39,6 @@
 
 <div class="d-flex justify-content-center align-items-center">
     <a href="<?= BASE_PATH ?>/" class="btn btn-secondary dr-shadow me-2">&lt;&lt; Dashboard</a>
-    |
     <a href="<?= BASE_PATH ?>/clients/create" class="btn btn-primary dr-shadow ms-2">Add Client</a>
 </div>
 

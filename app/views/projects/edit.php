@@ -23,32 +23,31 @@
                 <table class="table">
                     <tbody>
                         <tr>
-                            <th>Client</th>
+                            <th class="align-middle">Client</th>
                             <td>
-                                <input type="text" name="client" class="auto_client form-control w-75" value="<?= htmlspecialchars($project['client_id'])." ".htmlspecialchars($client_name) ?>" required>
+                                <input type="text" name="client" class="auto_client form-control w-75" value="<?= htmlspecialchars($project['client_id']." ".$client_name) ?>" required>
                             </td>
                         </tr>
                         <tr>
-                            <th>Due Date</th>
+                            <th class="align-middle">Due Date</th>
                             <td>
                                 <input type="date" name="due_date" class="form-control w-75" value="<?= htmlspecialchars($project['due_date']) ?>">
                             </td>
                         </tr>
                         <tr>
-                            <th>Status</th>
+                            <th class="align-middle">Status</th>
                             <td>
                                 <select name="status" class="form-select w-75">
-                                    <option value="open" <?= $project['status'] === 'open' ? 'selected' : '' ?>>Open</option>
-                                    <option value="in_progress" <?= $project['status'] === 'in_progress' ? 'selected' : '' ?>>In Progress</option>
-                                    <option value="on_hold" <?= $project['status'] === 'on_hold' ? 'selected' : '' ?>>On Hold</option>
-                                    <option value="completed" <?= $project['status'] === 'completed' ? 'selected' : '' ?>>Completed</option>
-                                    <option value="finalized" <?= $project['status'] === 'finalized' ? 'selected' : '' ?>>Finalized</option>
-                                    <option value="cancelled" <?= $project['status'] === 'cancelled' ? 'selected' : '' ?>>Cancelled</option>
+                                    <?php foreach ($statuses as $value => $display): ?>
+                                        <option value="<?= htmlspecialchars($value) ?>" <?= $value === $project['status'] ? 'selected' : '' ?>>
+                                            <?= htmlspecialchars($display) ?>
+                                        </option>
+                                    <?php endforeach; ?>
                                 </select>
                             </td>
                         </tr>
                         <tr>
-                            <th>Description</th>
+                            <th class="align-middle">Description</th>
                             <td>
                                 <textarea name="description" class="form-control w-75" rows="4"><?= htmlspecialchars($project['description']) ?></textarea>
                             </td>
@@ -60,7 +59,6 @@
     </div>
     <div class="d-flex justify-content-center align-items-center">
         <a href="<?= BASE_PATH ?>/projects" class="btn btn-secondary dr-shadow me-2">&lt;&lt; Cancel</a>
-        |
         <button type="submit" class="btn btn-primary dr-shadow ms-2">Save</button>
     </div>
 </form>

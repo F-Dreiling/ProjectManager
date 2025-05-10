@@ -33,12 +33,12 @@
                         <th class="align-middle">Status</th>
                         <td>
                             <div class="dr-tag">
-                                <?= htmlspecialchars($project['status']) ?>
+                                <?= htmlspecialchars($statuses[$project['status']]) ?>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <th>Description</th>
+                        <th class="align-middle">Description</th>
                         <td><?= htmlspecialchars($project['description'] ?? 'N/A') ?></td>
                     </tr>
                     <tr>
@@ -57,9 +57,7 @@
 
 <div class="d-flex justify-content-center align-items-center">
     <a href="<?= BASE_PATH ?>/projects" class="btn btn-secondary dr-shadow me-2">&lt;&lt; Back</a>
-    |
     <a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/edit" class="btn btn-primary dr-shadow mx-2">Edit</a>
-    |
     <a href="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/delete" class="btn btn-danger dr-shadow ms-2">Delete</a>
 </div>
 

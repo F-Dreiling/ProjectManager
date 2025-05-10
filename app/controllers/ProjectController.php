@@ -15,11 +15,15 @@ class ProjectController
             $client_names[$project['id']] = $client ? $client['name'] : 'N/A';
         }
 
+        $statuses = Project::getStatuses();
+
         require_once __DIR__ . '/../views/projects/index.php';
     }
 
     public function create()
     {
+        $statuses = Project::getStatuses();
+
         require_once __DIR__ . '/../views/projects/create.php';
     }
 
@@ -83,6 +87,8 @@ class ProjectController
             $client_name = $client['name'] ?? 'N/A';
         }
 
+        $statuses = Project::getStatuses();
+
         require_once __DIR__ . '/../views/projects/show.php';
     }
 
@@ -106,6 +112,8 @@ class ProjectController
         else {
             $client_name = $client['name'] ?? 'N/A';
         }
+
+        $statuses = Project::getStatuses();
 
         require_once __DIR__ . '/../views/projects/edit.php';
     }
@@ -168,6 +176,8 @@ class ProjectController
         }
 
         $client_name = Client::find($_SESSION['user']['id'], $project['client_id'])['name'] ?? 'N/A';
+
+        $statuses = Project::getStatuses();
         
         require_once __DIR__ . '/../views/projects/delete.php';
     }

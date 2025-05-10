@@ -48,6 +48,18 @@ class Project
         $stmt = $db->prepare('DELETE FROM projects WHERE id = ?');
         $stmt->execute([$id]);
     }
+
+    public static function getStatuses()
+    {
+        return [
+            'open' => 'Open',
+            'in_progress' => 'In Progress',
+            'on_hold' => 'On Hold',
+            'completed' => 'Completed',
+            'finalized' => 'Finalized',
+            'cancelled' => 'Cancelled',
+        ];
+    }
 }
 
 ?>

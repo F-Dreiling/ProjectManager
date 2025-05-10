@@ -30,8 +30,12 @@
                         <td><?= htmlspecialchars($project['due_date'] ?? 'N/A') ?></td>
                     </tr>
                     <tr>
-                        <th>Status</th>
-                        <td><?= htmlspecialchars($project['status']) ?></td>
+                        <th class="align-middle">Status</th>
+                        <td>
+                            <div class="dr-tag">
+                                <?= htmlspecialchars($statuses[$project['status']]) ?>
+                            </div>    
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -41,7 +45,6 @@
 
 <div class="d-flex justify-content-center align-items-center">
     <a href="<?= BASE_PATH ?>/projects" class="btn btn-secondary dr-shadow me-2">&lt;&lt; Cancel</a>
-    |
     <form method="POST" action="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/delete" class="d-inline">
         <button type="submit" class="btn btn-danger dr-shadow ms-2">Delete</button>
     </form>

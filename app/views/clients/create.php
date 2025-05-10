@@ -17,31 +17,31 @@
                 <table class="table">
                     <tbody>
                         <tr>
-                            <th>Contact</th>
+                            <th class="align-middle">Contact</th>
                             <td>
                                 <input type="text" name="contact" class="form-control w-75" placeholder="Contact Person">
                             </td>
                         </tr>
                         <tr>
-                            <th>Email</th>
+                            <th class="align-middle">Email</th>
                             <td>
                                 <input type="text" name="email" class="form-control w-75" placeholder="Email Address">
                             </td>
                         </tr>
                         <tr>
-                            <th>Phone</th>
+                            <th class="align-middle">Phone</th>
                             <td>
                                 <input type="text" name="phone" class="form-control w-75" placeholder="Phone Number">
                             </td>
                         </tr>
                         <tr>
-                            <th>Company</th>
+                            <th class="align-middle">Company</th>
                             <td>
                                 <input type="text" name="company" class="form-control w-75" placeholder="Company Name">
                             </td>
                         </tr>
                         <tr>
-                            <th>Notes</th>
+                            <th class="align-middle">Notes</th>
                             <td>
                                 <textarea name="notes" class="form-control w-75" rows="4" placeholder="Additional Notes"></textarea>
                             </td>
@@ -53,7 +53,6 @@
     </div>
     <div class="d-flex justify-content-center align-items-center">
         <a href="<?= BASE_PATH ?>/clients" class="btn btn-secondary dr-shadow me-2">&lt;&lt; Cancel</a>
-        |
         <button type="submit" class="btn btn-primary dr-shadow ms-2">Save</button>
     </div>
 </form>

@@ -34,7 +34,7 @@
                         <td><?= htmlspecialchars($client['company'] ?? 'N/A') ?></td>
                     </tr>
                     <tr>
-                        <th>Notes</th>
+                        <th class="align-middle">Notes</th>
                         <td><?= htmlspecialchars($client['notes'] ?? 'N/A') ?></td>
                     </tr>
                     <tr>
@@ -53,9 +53,7 @@
 
 <div class="d-flex justify-content-center align-items-center">
     <a href="<?= BASE_PATH ?>/clients" class="btn btn-secondary dr-shadow me-2">&lt;&lt; Back</a>
-    |
     <a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>/edit" class="btn btn-primary dr-shadow mx-2">Edit</a>
-    |
     <a href="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>/delete" class="btn btn-danger dr-shadow ms-2">Delete</a>
 </div>
 
