@@ -2,6 +2,7 @@ body {
     letter-spacing: 0.0625rem !important;
 }
 
+
 .dr-navbar-head {
     height: 3.5rem !important;
     box-sizing: border-box !important;
@@ -38,9 +39,7 @@ body {
     padding-top: 0.375rem !important;
     padding-bottom: 0.375rem !important;
     border-radius: 0.375rem !important;
-    border: 1px solid #bcbcc1;
-    background-color: #bcbcc1;
-    color: white;
+    font-weight: bold !important;
 }
 
 
@@ -56,4 +55,41 @@ body {
 
 .table tbody tr:nth-of-type(odd) {
     --bs-table-striped-bg: #f8f9fa; /* Bootstrap's bg-light color for subtle striping */
+}
+
+
+.dr-status-open {
+    color: #198754;
+    background-color: #d1e7dd; /* Muted success green */
+    border: 1px solid #d1e7dd; /* Original success border */
+}
+
+.dr-status-in_progress {
+    color: #20c997;
+    background-color: #d1f0ea; /* Muted teal */
+    border: 1px solid #d1f0ea; /* Original teal border */
+}
+
+.dr-status-on_hold {
+    color: #ffc107;
+    background-color: #fff3cd; /* Muted warning yellow */
+    border: 1px solid #fff3cd; /* Original warning border */
+}
+
+.dr-status-completed {
+    color: #0dcaf0;
+    background-color: #cff4fc; /* Muted info blue */
+    border: 1px solid #cff4fc; /* Original info border */
+}
+
+.dr-status-finalized {
+    color: #0d6efd;
+    background-color: #e7f1ff; /* Muted primary blue */
+    border: 1px solid #e7f1ff; /* Original primary border */
+}
+
+.dr-status-cancelled {
+    color: #dc3545;
+    background-color: #f8d7da; /* Muted danger red */
+    border: 1px solid #f8d7da; /* Original danger border */
 }

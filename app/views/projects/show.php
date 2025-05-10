@@ -32,7 +32,7 @@
                     <tr>
                         <th class="align-middle">Status</th>
                         <td>
-                            <div class="dr-tag">
+                            <div class="dr-tag dr-status-<?= htmlspecialchars($project['status']) ?>">
                                 <?= htmlspecialchars($statuses[$project['status']]) ?>
                             </div>
                         </td>

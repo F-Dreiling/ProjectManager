@@ -30,7 +30,7 @@
                         <?= htmlspecialchars($project['due_date']) ?>
                 </td>
                 <td>
-                    <div class="dr-tag">
+                    <div class="dr-tag dr-status-<?= htmlspecialchars($project['status']) ?>">
                         <?= htmlspecialchars($statuses[$project['status']]) ?>
                     </div>
                 </td>
