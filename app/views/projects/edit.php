@@ -14,10 +14,9 @@
 <form method="POST" action="<?= BASE_PATH ?>/projects/<?= $project['id'] ?>/update">
     <div class="d-flex justify-content-center">
         <div class="card dr-shadow mb-4 w-50">
-            <div class="card-header bg-success text-white">
-                <h5 class="mb-0">
-                    <input type="text" name="title" class="form-control w-100" value="<?= htmlspecialchars($project['title']) ?>" required>
-                </h5>
+            <div class="card-header d-flex align-items-center bg-success text-white">
+                <h5 class="mb-0 me-2">#<?= htmlspecialchars($project['id']) ?></h5>
+                <input type="text" name="title" class="form-control w-100" value="<?= htmlspecialchars($project['title']) ?>" required>
             </div>
             <div class="card-body">
                 <table class="table">
