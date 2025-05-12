@@ -42,6 +42,24 @@
                         <td><?= htmlspecialchars($project['description'] ?? 'N/A') ?></td>
                     </tr>
                     <tr>
+                        <th class="align-middle">Positions</th>
+                        <td>
+                            <?php if (count($positions) > 0): ?>
+                                <ul class="list-group">
+                                    <?php foreach ($positions as $position): ?>
+                                        <li class="list-group-item">
+                                            <i class="fa fa-wrench fa-fw"></i>
+                                            <?= htmlspecialchars($position['title']." (".$position['hours']."h)").
+                                                (!empty($position['description']) ? ":<br>".htmlspecialchars($position['description']) : "") ?>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php else: ?>
+                                <p class="text-muted">No positions found for this project.</p>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                    <tr>
                         <th>Created At</th>
                         <td><?= htmlspecialchars($project['created_at']) ?></td>
                     </tr>

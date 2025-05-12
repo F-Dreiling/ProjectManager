@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../models/Client.php';
 require_once __DIR__ . '/../models/Project.php';
+require_once __DIR__ . '/../models/Position.php';
 
 class ProjectController
 {
@@ -87,6 +88,8 @@ class ProjectController
             $client_name = $client['name'] ?? 'N/A';
         }
 
+        $positions = Position::all($id);
+
         $statuses = Project::getStatuses();
 
         require_once __DIR__ . '/../views/projects/show.php';
@@ -112,6 +115,8 @@ class ProjectController
         else {
             $client_name = $client['name'] ?? 'N/A';
         }
+
+        $positions = Position::all($id);
 
         $statuses = Project::getStatuses();
 
