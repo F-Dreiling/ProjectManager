@@ -7,7 +7,9 @@
     <div class="col-md-6">
         <div class="card mb-4 dr-shadow">
             <div class="card-header bg-warning">
-                <a class="d-flex text-white text-decoration-none fw-bold fs-5" href="<?= BASE_PATH ?>/clients">Latest Clients</a>
+                <a class="d-flex align-items-center text-white text-decoration-none fw-bold fs-5" href="<?= BASE_PATH ?>/clients">
+                    <i class="fa fa-address-card fa-fw me-1"></i>Latest Clients
+                </a>
             </div>
             <ul class="list-group list-group-flush">
                 <?php foreach ($latestClients as $client): ?>
@@ -24,7 +26,9 @@
     <div class="col-md-6">
         <div class="card mb-4 dr-shadow">
             <div class="card-header bg-success">
-                <a class="d-flex text-white text-decoration-none fw-bold fs-5" href="<?= BASE_PATH ?>/projects">Latest Projects</a>
+                <a class="d-flex align-items-center text-white text-decoration-none fw-bold fs-5" href="<?= BASE_PATH ?>/projects">
+                    <i class="fa fa-gear fa-fw me-1"></i>Latest Projects
+                </a>
             </div>
             <ul class="list-group list-group-flush">
                 <?php foreach ($latestProjects as $project): ?>

@@ -6,7 +6,7 @@
 
 <?php require __DIR__ . '/../layout/header.php'; ?>
 
-<h2 class="mb-1">Project Details</h2>
+<h2 class="mb-1"><i class="fa fa-gear fa-fw me-1"></i>Project Details</h2>
 <h2 class="mb-4">&gt;&gt;</h2>
 
 <div class="d-flex justify-content-center">
@@ -55,7 +55,7 @@
                                     <?php endforeach; ?>
                                 </ul>
                             <?php else: ?>
-                                <p class="text-muted">No positions found for this project.</p>
+                                <p class="text-muted mb-0">No positions found for this project.</p>
                             <?php endif; ?>
                         </td>
                     </tr>

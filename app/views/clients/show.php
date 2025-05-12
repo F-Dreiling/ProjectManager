@@ -6,7 +6,7 @@
 
 <?php require __DIR__ . '/../layout/header.php'; ?>
 
-<h2 class="mb-1">Client Details</h2>
+<h2 class="mb-1"><i class="fa fa-address-card fa-fw me-1"></i>Client Details</h2>
 <h2 class="mb-4">&gt;&gt;</h2>
 
 <div class="d-flex justify-content-center">

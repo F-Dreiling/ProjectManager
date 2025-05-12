@@ -6,7 +6,7 @@
 
 <?php require_once __DIR__ . '/../layout/header.php'; ?>
 
-<h2 class="mb-1">Project Details</h2>
+<h2 class="mb-1"><i class="fa fa-gear fa-fw me-1"></i>Project Details</h2>
 <h2 class="mb-4">&gt;&gt;</h2>
 
 <?php require_once __DIR__ . '/../layout/flash.php'; ?>

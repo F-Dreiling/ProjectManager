@@ -22,18 +22,21 @@
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center text-white dr-navbar-item 
                         <?= isset($_SESSION['controller']) && $_SESSION['controller'] === 'ClientController' ? 'bg-warning' : '' ?>" 
-                        href="<?= BASE_PATH ?>/clients">Clients
+                        href="<?= BASE_PATH ?>/clients">
+                        <i class="fa fa-address-card fa-fw me-1"></i>Clients
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center text-white dr-navbar-item 
                         <?= isset($_SESSION['controller']) && $_SESSION['controller'] === 'ProjectController' ? 'bg-success' : '' ?>" 
-                        href="<?= BASE_PATH ?>/projects">Projects
+                        href="<?= BASE_PATH ?>/projects">
+                        <i class="fa fa-gear fa-fw me-1"></i>Projects
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link d-flex align-items-center text-white dr-navbar-item" 
-                        href="<?= BASE_PATH ?>/logout">Logout
+                        href="<?= BASE_PATH ?>/logout">
+                        <i class="fa fa-right-from-bracket fa-fw me-1"></i>Logout
                     </a>
                 </li>
             </ul>
