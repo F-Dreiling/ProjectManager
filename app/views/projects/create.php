@@ -46,6 +46,13 @@
                                 <textarea name="description" class="form-control w-75" rows="4" placeholder="Project Description"></textarea>
                             </td>
                         </tr>
+                        <tr>
+                            <th class="align-middle">Positions</th>
+                            <td>
+                                <div id="position_fields"></div>
+                                <button type="button" id="addPos" class="btn btn-primary">+</button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -58,12 +65,42 @@
 </form>
 
 <script type="text/javascript">
+    var countPos = 0;
+    var isClassAdded = false;
 
     $(document).ready( function() {
 
         $('.auto_client').autocomplete({
             source: "<?= BASE_PATH ?>/clients/autocomplete",
             minLength: 1,
+        });
+
+        $('#addPos').click( function(event) {
+
+            if ( countPos >= 20 ) {
+                alert("Maximum of twenty position entries exceeded");
+                return;
+            }
+
+            countPos++;
+
+            // Add the "mb-3" class to #position_fields on the first click
+            if (!isClassAdded) {
+                $('#position_fields').addClass('mb-3');
+                isClassAdded = true;
+            }
+
+            // Append a new position entry
+            $('#position_fields').append(
+                '<div id="position' + countPos + '"> \
+                    <input type="button" class="btn btn-secondary mb-2" value="-" onclick="$(\'#position' + countPos + '\').remove();return false;"><br> \
+                    <p> \
+                        Title: <input type="text" name="pos_title' + countPos + '" class="form-control w-75" value="" /> \
+                        Hours: <input type="text" name="pos_hours' + countPos + '" class="form-control w-75" value="" /> \
+                        Description: <textarea name="pos_description' + countPos + '" class="form-control w-75" rows="4"></textarea> \
+                    </p> \
+                </div>'
+            );
         });
 
     });

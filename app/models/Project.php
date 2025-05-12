@@ -49,6 +49,12 @@ class Project
         $stmt->execute([$id]);
     }
 
+    public static function getLastInsertID()
+    {
+        $db = Database::connect();
+        return $db->lastInsertId();
+    }
+
     public static function getStatuses()
     {
         return [

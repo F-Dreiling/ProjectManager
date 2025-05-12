@@ -63,6 +63,20 @@ class ProjectController
         Project::create($_SESSION['user']['id'], $client, $title, $due_date, $status, $description);
         $_SESSION['success'] = 'Project created successfully';
 
+        $project_id = Project::getLastInsertId();
+
+        // Store Positions
+        for ($i = 1; $i <= 20; $i++) {
+            
+            if (!isset($_POST['pos_title' . $i])) continue;
+
+            $pos_title = $_POST['pos_title' . $i];
+            $pos_description = $_POST['pos_description' . $i] ?? '';
+            $pos_hours = $_POST['pos_hours' . $i] ?? 0;
+
+            Position::create($project_id, $pos_title, $pos_description, $pos_hours);
+        }
+
         header('Location: ' . BASE_PATH . '/projects');
         return; 
     }
