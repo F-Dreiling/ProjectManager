@@ -93,7 +93,7 @@
             // Append a new position entry
             $('#position_fields').append(
                 '<div id="position' + countPos + '"> \
-                    <input type="button" class="btn btn-secondary mb-2" value="-" onclick="$(\'#position' + countPos + '\').remove();return false;"><br> \
+                    <input type="button" class="btn btn-secondary mb-2" value="-" onclick="removePosition(' + countPos + ')"><br> \
                     <p> \
                         Title: <input type="text" name="pos_title' + countPos + '" class="form-control w-75" value="" /> \
                         Hours: <input type="text" name="pos_hours' + countPos + '" class="form-control w-75" value="" /> \
@@ -104,6 +104,18 @@
         });
 
     });
+
+    // Function to remove a position entry
+    function removePosition(id) {
+        $('#position' + id).remove();
+        countPos--;
+
+        // Check if #position_fields is empty and remove the "mb-3" class
+        if ($('#position_fields').children().length === 0) {
+            $('#position_fields').removeClass('mb-3');
+            isClassAdded = false;
+        }
+    }
 
 </script>
 
