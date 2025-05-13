@@ -112,7 +112,6 @@
     function removePosition(id) {
         $('#position' + id).remove();
         countPos--;
-        console.log("CountPos: " + countPos);
 
         // Check if #position_fields is empty and remove the "mb-3" class
         if ($('#position_fields').children().length === 0) {
