@@ -11,15 +11,15 @@
 
 <div class="d-flex justify-content-center">
     <div class="card dr-shadow mb-4 w-50">
-        <div class="card-header bg-warning text-white">
+        <div class="card-header px-4 bg-warning text-white">
             <h5 class="mb-0">#<?= htmlspecialchars($client['id']) ?> <?= htmlspecialchars($client['name']) ?></h5>
         </div>
         <div class="card-body">
-            <table class="table">
+            <table class="table mb-0">
                 <tbody>
                     <tr>
-                        <th>Contact</th>
-                        <td><?= htmlspecialchars($client['contact'] ?? 'N/A') ?></td>
+                        <th class="dr-border-top">Contact</th>
+                        <td class="dr-border-top"><?= htmlspecialchars($client['contact'] ?? 'N/A') ?></td>
                     </tr>
                     <tr>
                         <th>Email</th>

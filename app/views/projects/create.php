@@ -8,30 +8,30 @@
 <form method="POST" action="<?= BASE_PATH ?>/projects/store">
     <div class="d-flex justify-content-center">
         <div class="card dr-shadow mb-4 w-50">
-            <div class="card-header bg-success text-white">
+            <div class="card-header px-4 bg-success text-white">
                 <h5 class="mb-0">
                     <input type="text" name="title" class="form-control w-100" placeholder="Project Title" required>
                 </h5>
             </div>
             <div class="card-body">
-                <table class="table">
+                <table class="table mb-0">
                     <tbody>
                         <tr>
-                            <th class="align-middle">Client</th>
-                            <td>
-                                <input type="text" name="client" class="auto_client form-control w-75" placeholder="Client Name" required>
+                            <th class="align-middle dr-border-top">Client</th>
+                            <td class="dr-border-top">
+                                <input type="text" name="client" class="auto_client form-control" placeholder="Client Name" required>
                             </td>
                         </tr>
                         <tr>
                             <th class="align-middle">Due Date</th>
                             <td>
-                                <input type="date" name="due_date" class="form-control w-75" placeholder="Due Date">
+                                <input type="date" name="due_date" class="form-control" placeholder="Due Date">
                             </td>
                         </tr>
                         <tr>
                             <th class="align-middle">Status</th>
                             <td>
-                                <select name="status" class="form-select w-75">
+                                <select name="status" class="form-select">
                                     <?php foreach ($statuses as $value => $display): ?>
                                         <option value="<?= htmlspecialchars($value) ?>" <?= $value === 'open' ? 'selected' : '' ?>>
                                             <?= htmlspecialchars($display) ?>
@@ -43,7 +43,7 @@
                         <tr>
                             <th class="align-middle">Description</th>
                             <td>
-                                <textarea name="description" class="form-control w-75" rows="4" placeholder="Project Description"></textarea>
+                                <textarea name="description" class="form-control" rows="3" placeholder="Project Description"></textarea>
                             </td>
                         </tr>
                         <tr>
@@ -93,24 +93,27 @@
             // Append a new position entry
             $('#position_fields').append(
                 '<div id="position' + countPos + '"> \
-                    <input type="button" class="btn btn-secondary mb-2" value="-" onclick="removePosition(' + countPos + ')"><br> \
-                    <div class="w-75 mb-2"> \
-                        <label>Title:</label> \
-                        <input type="text" name="pos_title' + countPos + '" class="form-control w-100" value="" required /> \
+                    <div class="mb-2"> \
+                        <input type="button" class="btn btn-secondary" value="-" onclick="removePosition(' + countPos + ')"> \
+                        <label class="ms-2">#' + countPos + '</label> \
                     </div> \
-                    <div class="d-flex justify-content-between w-75 gap-3 mb-2"> \
+                    <div class="mb-2"> \
+                        <label>Title:</label> \
+                        <input type="text" name="pos_title' + countPos + '" class="form-control" value="" required /> \
+                    </div> \
+                    <div class="d-flex justify-content-between gap-3 mb-2"> \
                         <div class="d-inline-block"> \
                             <label>Hours:</label> \
-                            <input type="text" name="pos_hours' + countPos + '" class="form-control w-100" value="0" /> \
+                            <input type="text" name="pos_hours' + countPos + '" class="form-control" value="0" /> \
                         </div> \
                         <div class="d-inline-block"> \
-                            <label>Rate:</label> \
-                            <input type="text" name="pos_rate' + countPos + '" class="form-control w-100" value="0" /> \
+                            <label>Rate in &euro;:</label> \
+                            <input type="text" name="pos_rate' + countPos + '" class="form-control" value="0" /> \
                         </div> \
                     </div> \
-                    <div class="w-75 mb-3"> \
+                    <div class="mb-3"> \
                         <label>Description:</label> \
-                        <textarea name="pos_description' + countPos + '" class="form-control w-100" rows="2"></textarea> \
+                        <textarea name="pos_description' + countPos + '" class="form-control" rows="2"></textarea> \
                     </div> \
                 </div>'
             );

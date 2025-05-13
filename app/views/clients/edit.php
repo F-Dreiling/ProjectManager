@@ -14,41 +14,41 @@
 <form method="POST" action="<?= BASE_PATH ?>/clients/<?= $client['id'] ?>/update">
     <div class="d-flex justify-content-center">
         <div class="card dr-shadow mb-4 w-50">
-            <div class="card-header d-flex align-items-center bg-warning text-white">
+            <div class="card-header d-flex align-items-center px-4 bg-warning text-white">
                 <h5 class="mb-0 me-2">#<?= htmlspecialchars($client['id']) ?></h5>
                 <input type="text" name="name" class="form-control w-100" placeholder="Client Name" value="<?= htmlspecialchars($client['name']) ?>" required>
             </div>
             <div class="card-body">
-                <table class="table">
+                <table class="table mb-0">
                     <tbody>
                         <tr>
-                            <th class="align-middle">Contact</th>
-                            <td>
-                                <input type="text" name="contact" class="form-control w-75" value="<?= htmlspecialchars($client['contact']) ?>">
+                            <th class="align-middle dr-border-top">Contact</th>
+                            <td class="dr-border-top">
+                                <input type="text" name="contact" class="form-control" value="<?= htmlspecialchars($client['contact']) ?>">
                             </td>
                         </tr>
                         <tr>
                             <th class="align-middle">Email</th>
                             <td>
-                                <input type="text" name="email" class="form-control w-75" value="<?= htmlspecialchars($client['email']) ?>">
+                                <input type="text" name="email" class="form-control" value="<?= htmlspecialchars($client['email']) ?>">
                             </td>
                         </tr>
                         <tr>
                             <th class="align-middle">Phone</th>
                             <td>
-                                <input type="text" name="phone" class="form-control w-75" value="<?= htmlspecialchars($client['phone']) ?>">
+                                <input type="text" name="phone" class="form-control" value="<?= htmlspecialchars($client['phone']) ?>">
                             </td>
                         </tr>
                         <tr>
                             <th class="align-middle">Company</th>
                             <td>
-                                <input type="text" name="company" class="form-control w-75" value="<?= htmlspecialchars($client['company']) ?>">
+                                <input type="text" name="company" class="form-control" value="<?= htmlspecialchars($client['company']) ?>">
                             </td>
                         </tr>
                         <tr>
                             <th class="align-middle">Notes</th>
                             <td>
-                                <textarea name="notes" class="form-control w-75" rows="4"><?= htmlspecialchars($client['notes']) ?></textarea>
+                                <textarea name="notes" class="form-control" rows="3"><?= htmlspecialchars($client['notes']) ?></textarea>
                             </td>
                         </tr>
                     </tbody>
