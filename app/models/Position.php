@@ -10,11 +10,11 @@ class Position
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function create($project_id, $title, $description, $hours)
+    public static function create($project_id, $title, $description, $hours, $rate)
     {
         $db = Database::connect();
-        $stmt = $db->prepare('INSERT INTO positions (project_id, title, description, hours) VALUES (?, ?, ?, ?)');
-        $stmt->execute([$project_id, $title, $description, $hours]);
+        $stmt = $db->prepare('INSERT INTO positions (project_id, title, description, hours, rate) VALUES (?, ?, ?, ?, ?)');
+        $stmt->execute([$project_id, $title, $description, $hours, $rate]);
     }
 
     public static function deleteByProject($project_id)

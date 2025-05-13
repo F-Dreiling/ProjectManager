@@ -62,16 +62,26 @@
                                         $countPos++;
                                         echo '<div id="position'.$countPos.'">
                                             <input type="button" class="btn btn-secondary mb-2" value="-" onclick="removePosition('.$countPos.')"><br>
-                                            <p>
-                                                Title: 
-                                                <input type="text" name="pos_title'.$countPos.'" class="form-control w-75" value="'.htmlspecialchars($position['title']).'" required />
-                                                Hours: 
-                                                <input type="text" name="pos_hours'.$countPos.'" class="form-control w-75" value="'.htmlspecialchars($position['hours']).'" />
-                                                Description: 
-                                                <textarea name="pos_description'.$countPos.'" class="form-control w-75" rows="4">'.
+                                            <div class="w-75 mb-2">
+                                                <label>Title:</label> 
+                                                <input type="text" name="pos_title'.$countPos.'" class="form-control w-100" value="'.htmlspecialchars($position['title']).'" required />
+                                            </div>
+                                            <div class="d-flex justify-content-between w-75 gap-3 mb-2">
+                                                <div class="d-inline-block">
+                                                    <label>Hours:</label>
+                                                    <input type="text" name="pos_hours'.$countPos.'" class="form-control w-100" value="'.htmlspecialchars($position['hours']).'" />
+                                                </div>
+                                                <div class="d-inline-block">
+                                                    <label>Rate:</label>
+                                                    <input type="text" name="pos_rate'.$countPos.'" class="form-control w-100" value="'.htmlspecialchars($position['rate']).'" />
+                                                </div>
+                                            </div>
+                                            <div class="w-75 mb-3">
+                                                <label>Description:</label>
+                                                <textarea name="pos_description'.$countPos.'" class="form-control w-100" rows="2">'.
                                                     (!empty($position['description']) ? htmlspecialchars($position['description']) : "").
                                                 '</textarea>
-                                            </p>
+                                            </div>
                                         </div>';
                                     } 
                                 ?>
@@ -120,14 +130,24 @@
             $('#position_fields').append(
                 '<div id="position' + countPos + '"> \
                     <input type="button" class="btn btn-secondary mb-2" value="-" onclick="removePosition(' + countPos + ')"><br> \
-                    <p> \
-                        Title: \
-                        <input type="text" name="pos_title' + countPos + '" class="form-control w-75" value="" required /> \
-                        Hours: \
-                        <input type="text" name="pos_hours' + countPos + '" class="form-control w-75" value="" /> \
-                        Description: \
-                        <textarea name="pos_description' + countPos + '" class="form-control w-75" rows="4"></textarea> \
-                    </p> \
+                    <div class="w-75 mb-2"> \
+                        <label>Title:</label> \
+                        <input type="text" name="pos_title' + countPos + '" class="form-control w-100" value="" required /> \
+                    </div> \
+                    <div class="d-flex justify-content-between w-75 gap-3 mb-2"> \
+                        <div class="d-inline-block"> \
+                            <label>Hours:</label> \
+                            <input type="text" name="pos_hours' + countPos + '" class="form-control w-100" value="0" /> \
+                        </div> \
+                        <div class="d-inline-block"> \
+                            <label>Rate:</label> \
+                            <input type="text" name="pos_rate' + countPos + '" class="form-control w-100" value="0" /> \
+                        </div> \
+                    </div> \
+                    <div class="w-75 mb-3"> \
+                        <label>Description:</label> \
+                        <textarea name="pos_description' + countPos + '" class="form-control w-100" rows="2"></textarea> \
+                    </div> \
                 </div>'
             );
         });

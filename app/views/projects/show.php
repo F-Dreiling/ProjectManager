@@ -49,7 +49,7 @@
                                     <?php foreach ($positions as $position): ?>
                                         <li class="list-group-item">
                                             <i class="fa fa-wrench fa-fw"></i>
-                                            <?= htmlspecialchars($position['title']." (".$position['hours']."h)").
+                                            <?= htmlspecialchars($position['title']." (".$position['hours']."h @ ".$position['rate']."€)").
                                                 (!empty($position['description']) ? ":<br>".htmlspecialchars($position['description']) : "") ?>
                                         </li>
                                     <?php endforeach; ?>

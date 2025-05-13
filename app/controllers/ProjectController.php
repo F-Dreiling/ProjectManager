@@ -61,6 +61,7 @@ class ProjectController
         $description = $_POST['description'];
 
         Project::create($_SESSION['user']['id'], $client, $title, $due_date, $status, $description);
+        $_SESSION['success'] = 'Project created successfully';
 
         $project_id = Project::getLastInsertId();
 
@@ -70,20 +71,33 @@ class ProjectController
             if (!isset($_POST['pos_title' . $i])) continue;
 
             if (empty($_POST['pos_title' . $i])) {
-                $_SESSION['error'] = 'Position title is required';
+                $_SESSION['error'] = 'Positions not saved. Title is required';
                 
-                header('Location: ' . BASE_PATH . '/projects/create');
+                header('Location: ' . BASE_PATH . '/projects');
+                return;
+            }
+
+            if (!is_numeric($_POST['pos_hours' . $i])) {
+                $_SESSION['error'] = 'Positions not saved. Hours must be numeric';
+
+                header('Location: ' . BASE_PATH . '/projects');
+                return;
+            }
+
+            if (!is_numeric($_POST['pos_rate' . $i])) {
+                $_SESSION['error'] = 'Positions not saved. Rate must be numeric';
+
+                header('Location: ' . BASE_PATH . '/projects');
                 return;
             }
 
             $pos_title = $_POST['pos_title' . $i];
             $pos_description = $_POST['pos_description' . $i] ?? '';
             $pos_hours = $_POST['pos_hours' . $i] ?? 0;
+            $pos_rate = $_POST['pos_rate' . $i] ?? 0;
 
-            Position::create($project_id, $pos_title, $pos_description, $pos_hours);
+            Position::create($project_id, $pos_title, $pos_description, $pos_hours, $pos_rate);
         }
-
-        $_SESSION['success'] = 'Project created successfully';
 
         header('Location: ' . BASE_PATH . '/projects');
         return; 
@@ -186,6 +200,7 @@ class ProjectController
         $description = $_POST['description'];
 
         Project::update($id, $client, $title, $due_date, $status, $description);
+        $_SESSION['success'] = 'Project updated successfully';
 
         // Check Position Titles
         $pos_count = 0;
@@ -196,6 +211,20 @@ class ProjectController
 
             if (empty($_POST['pos_title' . $i])) {
                 $_SESSION['error'] = 'Positions not saved. All titles are required';
+
+                header('Location: ' . BASE_PATH . '/projects/' . $id . '/edit');
+                return;
+            }
+
+            if (!is_numeric($_POST['pos_hours' . $i])) {
+                $_SESSION['error'] = 'Positions not saved. Hours must be numeric';
+
+                header('Location: ' . BASE_PATH . '/projects/' . $id . '/edit');
+                return;
+            }
+
+            if (!is_numeric($_POST['pos_rate' . $i])) {
+                $_SESSION['error'] = 'Positions not saved. Rate must be numeric';
 
                 header('Location: ' . BASE_PATH . '/projects/' . $id . '/edit');
                 return;
@@ -215,11 +244,10 @@ class ProjectController
             $pos_title = $_POST['pos_title' . $i];
             $pos_description = $_POST['pos_description' . $i] ?? '';
             $pos_hours = $_POST['pos_hours' . $i] ?? 0;
+            $pos_rate = $_POST['pos_rate' . $i] ?? 0;
 
-            Position::create($id, $pos_title, $pos_description, $pos_hours);
+            Position::create($id, $pos_title, $pos_description, $pos_hours, $pos_rate);
         }
-
-        $_SESSION['success'] = 'Project updated successfully';
 
         header('Location: ' . BASE_PATH . '/projects');
         return;
