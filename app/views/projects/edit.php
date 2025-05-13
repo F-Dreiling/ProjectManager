@@ -51,6 +51,34 @@
                                 <textarea name="description" class="form-control w-75" rows="4"><?= htmlspecialchars($project['description']) ?></textarea>
                             </td>
                         </tr>
+                        <tr>
+                            <th class="align-middle">Positions</th>
+                            <td>
+                                <div id="position_fields" <?= count($positions) > 0 ? 'class="mb-3"' : '' ?>>
+                                <?php 
+                                    $isClassAdded = count($positions) > 0 ? true : false;
+                                    $countPos = 0;
+                                    foreach ($positions as $position) {
+                                        $countPos++;
+                                        echo '<div id="position'.$countPos.'">
+                                            <input type="button" class="btn btn-secondary mb-2" value="-" onclick="removePosition('.$countPos.')"><br>
+                                            <p>
+                                                Title: 
+                                                <input type="text" name="pos_title'.$countPos.'" class="form-control w-75" value="'.htmlspecialchars($position['title']).'" required />
+                                                Hours: 
+                                                <input type="text" name="pos_hours'.$countPos.'" class="form-control w-75" value="'.htmlspecialchars($position['hours']).'" />
+                                                Description: 
+                                                <textarea name="pos_description'.$countPos.'" class="form-control w-75" rows="4">'.
+                                                    (!empty($position['description']) ? htmlspecialchars($position['description']) : "").
+                                                '</textarea>
+                                            </p>
+                                        </div>';
+                                    } 
+                                ?>
+                                </div>
+                                <button type="button" id="addPos" class="btn btn-primary">+</button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -63,6 +91,8 @@
 </form>
 
 <script type="text/javascript">
+    var countPos = <?= $countPos ?>;
+    var isClassAdded = <?= $isClassAdded ? 'true' : 'false' ?>;
 
     $(document).ready( function() {
 
@@ -71,7 +101,50 @@
             minLength: 1,
         });
 
+        $('#addPos').click( function(event) {
+
+            if ( countPos >= 15 ) {
+                alert("Maximum of 15 position entries exceeded");
+                return;
+            }
+
+            countPos++;
+
+            // Add the "mb-3" class to #position_fields on the first click
+            if (!isClassAdded) {
+                $('#position_fields').addClass('mb-3');
+                isClassAdded = true;
+            }
+
+            // Append a new position entry
+            $('#position_fields').append(
+                '<div id="position' + countPos + '"> \
+                    <input type="button" class="btn btn-secondary mb-2" value="-" onclick="removePosition(' + countPos + ')"><br> \
+                    <p> \
+                        Title: \
+                        <input type="text" name="pos_title' + countPos + '" class="form-control w-75" value="" required /> \
+                        Hours: \
+                        <input type="text" name="pos_hours' + countPos + '" class="form-control w-75" value="" /> \
+                        Description: \
+                        <textarea name="pos_description' + countPos + '" class="form-control w-75" rows="4"></textarea> \
+                    </p> \
+                </div>'
+            );
+        });
+
     });
+
+    // Function to remove a position entry
+    function removePosition(id) {
+        $('#position' + id).remove();
+        countPos--;
+
+        // Check if #position_fields is empty and remove the "mb-3" class
+        if ($('#position_fields').children().length === 0) {
+            $('#position_fields').removeClass('mb-3');
+            isClassAdded = false;
+        }
+    }
 
 </script>
 

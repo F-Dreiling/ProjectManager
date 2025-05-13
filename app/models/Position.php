@@ -16,6 +16,13 @@ class Position
         $stmt = $db->prepare('INSERT INTO positions (project_id, title, description, hours) VALUES (?, ?, ?, ?)');
         $stmt->execute([$project_id, $title, $description, $hours]);
     }
+
+    public static function deleteByProject($project_id)
+    {
+        $db = Database::connect();
+        $stmt = $db->prepare('DELETE FROM positions WHERE project_id = ?');
+        $stmt->execute([$project_id]);
+    }
 }
 
 ?>

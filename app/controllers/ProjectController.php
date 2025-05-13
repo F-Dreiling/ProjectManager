@@ -61,14 +61,20 @@ class ProjectController
         $description = $_POST['description'];
 
         Project::create($_SESSION['user']['id'], $client, $title, $due_date, $status, $description);
-        $_SESSION['success'] = 'Project created successfully';
 
         $project_id = Project::getLastInsertId();
 
         // Store Positions
-        for ($i = 1; $i <= 20; $i++) {
+        for ($i = 1; $i <= 15; $i++) {
             
             if (!isset($_POST['pos_title' . $i])) continue;
+
+            if (empty($_POST['pos_title' . $i])) {
+                $_SESSION['error'] = 'Position title is required';
+                
+                header('Location: ' . BASE_PATH . '/projects/create');
+                return;
+            }
 
             $pos_title = $_POST['pos_title' . $i];
             $pos_description = $_POST['pos_description' . $i] ?? '';
@@ -76,6 +82,8 @@ class ProjectController
 
             Position::create($project_id, $pos_title, $pos_description, $pos_hours);
         }
+
+        $_SESSION['success'] = 'Project created successfully';
 
         header('Location: ' . BASE_PATH . '/projects');
         return; 
@@ -178,6 +186,39 @@ class ProjectController
         $description = $_POST['description'];
 
         Project::update($id, $client, $title, $due_date, $status, $description);
+
+        // Check Position Titles
+        $pos_count = 0;
+
+        for ($i = 1; $i <= 15; $i++) {
+
+            if (!isset($_POST['pos_title' . $i])) continue;
+
+            if (empty($_POST['pos_title' . $i])) {
+                $_SESSION['error'] = 'Positions not saved. All titles are required';
+
+                header('Location: ' . BASE_PATH . '/projects/' . $id . '/edit');
+                return;
+            }
+
+            $pos_count++;
+        }
+
+        // Delete existing positions
+        Position::deleteByProject($id);
+
+        // Store Positions
+        for ($i = 1; $i <= $pos_count; $i++) {
+            
+            if (!isset($_POST['pos_title' . $i])) continue;
+
+            $pos_title = $_POST['pos_title' . $i];
+            $pos_description = $_POST['pos_description' . $i] ?? '';
+            $pos_hours = $_POST['pos_hours' . $i] ?? 0;
+
+            Position::create($id, $pos_title, $pos_description, $pos_hours);
+        }
+
         $_SESSION['success'] = 'Project updated successfully';
 
         header('Location: ' . BASE_PATH . '/projects');

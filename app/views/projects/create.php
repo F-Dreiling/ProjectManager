@@ -77,8 +77,8 @@
 
         $('#addPos').click( function(event) {
 
-            if ( countPos >= 20 ) {
-                alert("Maximum of twenty position entries exceeded");
+            if ( countPos >= 15 ) {
+                alert("Maximum of 15 position entries exceeded");
                 return;
             }
 
@@ -95,9 +95,12 @@
                 '<div id="position' + countPos + '"> \
                     <input type="button" class="btn btn-secondary mb-2" value="-" onclick="removePosition(' + countPos + ')"><br> \
                     <p> \
-                        Title: <input type="text" name="pos_title' + countPos + '" class="form-control w-75" value="" /> \
-                        Hours: <input type="text" name="pos_hours' + countPos + '" class="form-control w-75" value="" /> \
-                        Description: <textarea name="pos_description' + countPos + '" class="form-control w-75" rows="4"></textarea> \
+                        Title: \
+                        <input type="text" name="pos_title' + countPos + '" class="form-control w-75" value="" required /> \
+                        Hours: \
+                        <input type="text" name="pos_hours' + countPos + '" class="form-control w-75" value="" /> \
+                        Description: \
+                        <textarea name="pos_description' + countPos + '" class="form-control w-75" rows="4"></textarea> \
                     </p> \
                 </div>'
             );
@@ -109,6 +112,7 @@
     function removePosition(id) {
         $('#position' + id).remove();
         countPos--;
+        console.log("CountPos: " + countPos);
 
         // Check if #position_fields is empty and remove the "mb-3" class
         if ($('#position_fields').children().length === 0) {
