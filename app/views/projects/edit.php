@@ -22,8 +22,8 @@
                 <table class="table mb-0">
                     <tbody>
                         <tr>
-                            <th class="align-middle dr-border-top">Client</th>
-                            <td class="dr-border-top">
+                            <th class="align-middle">Client</th>
+                            <td>
                                 <input type="text" name="client" class="auto_client form-control" value="<?= htmlspecialchars($project['client_id']." ".$client_name) ?>" required>
                             </td>
                         </tr>

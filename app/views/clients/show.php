@@ -18,8 +18,8 @@
             <table class="table mb-0">
                 <tbody>
                     <tr>
-                        <th class="dr-border-top">Contact</th>
-                        <td class="dr-border-top"><?= htmlspecialchars($client['contact'] ?? 'N/A') ?></td>
+                        <th>Contact</th>
+                        <td><?= htmlspecialchars($client['contact'] ?? 'N/A') ?></td>
                     </tr>
                     <tr>
                         <th>Email</th>

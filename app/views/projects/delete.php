@@ -18,8 +18,8 @@
             <table class="table mb-0">
                 <tbody>
                     <tr>
-                        <th class="dr-border-top">Client</th>
-                        <td class="dr-border-top">
+                        <th>Client</th>
+                        <td>
                             <a href="<?= BASE_PATH ?>/clients/<?= $project['client_id'] ?>" class="text-decoration-none text-black">
                                 #<?= htmlspecialchars($project['client_id']) ?> <?= htmlspecialchars($client_name) ?>
                             </a>

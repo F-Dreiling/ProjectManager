@@ -22,8 +22,8 @@
                 <table class="table mb-0">
                     <tbody>
                         <tr>
-                            <th class="align-middle dr-border-top">Contact</th>
-                            <td class="dr-border-top">
+                            <th class="align-middle">Contact</th>
+                            <td>
                                 <input type="text" name="contact" class="form-control" value="<?= htmlspecialchars($client['contact']) ?>">
                             </td>
                         </tr>
