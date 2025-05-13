@@ -60,36 +60,47 @@ body {
 
 .dr-status-open {
     color: #198754;
-    background-color: #d1e7dd; /* Muted success green */
-    border: 1px solid #d1e7dd; /* Original success border */
+    background-color: #d1e7dd;
+    border: 1px solid #d1e7dd;
 }
 
 .dr-status-in_progress {
-    color: #20c997;
-    background-color: #d1f0ea; /* Muted teal */
-    border: 1px solid #d1f0ea; /* Original teal border */
+    color: #22ced4;
+    background-color: #d1eff0;
+    border: 1px solid #d1eff0;
 }
 
 .dr-status-on_hold {
     color: #ffc107;
-    background-color: #fff3cd; /* Muted warning yellow */
-    border: 1px solid #fff3cd; /* Original warning border */
+    background-color: #fff3cd;
+    border: 1px solid #fff3cd;
 }
 
 .dr-status-completed {
-    color: #0dcaf0;
-    background-color: #cff4fc; /* Muted info blue */
-    border: 1px solid #cff4fc; /* Original info border */
+    color: #0d6efd;
+    background-color: #e7f1ff;
+    border: 1px solid #e7f1ff;
 }
 
 .dr-status-finalized {
-    color: #0d6efd;
-    background-color: #e7f1ff; /* Muted primary blue */
-    border: 1px solid #e7f1ff; /* Original primary border */
+    color: #7d0dfd;
+    background-color: #f2e7ff;
+    border: 1px solid #f2e7ff;
 }
 
 .dr-status-cancelled {
     color: #dc3545;
-    background-color: #f8d7da; /* Muted danger red */
-    border: 1px solid #f8d7da; /* Original danger border */
+    background-color: #f8d7da;
+    border: 1px solid #f8d7da;
 }
+
+/* 
+Teal
+    color: #20c997;
+    background-color: #d1f0ea;
+    border: 1px solid #d1f0ea;
+Info
+    color: #0dcaf0;
+    background-color: #cff4fc;
+    border: 1px solid #cff4fc;
+*/
