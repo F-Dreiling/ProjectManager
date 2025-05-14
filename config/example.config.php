@@ -8,6 +8,7 @@ return [
 
     'db' => [
         'host' => 'localhost',
+        'port' => 3306,
         'database' => 'projectmanager',
         'username' => 'root',
         'password' => '',

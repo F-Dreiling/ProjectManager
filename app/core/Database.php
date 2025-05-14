@@ -11,7 +11,7 @@ class Database
         $db = $config['db'];
 
         try {
-            $dsn = "mysql:host={$db['host']};dbname={$db['database']};charset={$db['charset']}";
+            $dsn = "mysql:host={$db['host']};port={$db['port']};dbname={$db['database']};charset={$db['charset']}";
             
             $this->pdo = new PDO($dsn, $db['username'], $db['password']);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
