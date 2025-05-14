@@ -1,3 +1,5 @@
 config.php
 seed.php
 database.txt
+default
+.htaccess
