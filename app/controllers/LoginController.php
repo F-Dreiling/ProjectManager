@@ -13,7 +13,7 @@ class LoginController
             $password = $_POST['password'];
 
             $db = Database::connect();
-            $stmt = $db->prepare('SELECT * FROM users WHERE email = ?');
+            $stmt = $db->prepare('SELECT * FROM pm_users WHERE email = ?');
             $stmt->execute([$email]);
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 

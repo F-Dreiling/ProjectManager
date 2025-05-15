@@ -16,6 +16,8 @@ class Router
     public function dispatch($uri)
     {
         $method = $_SERVER['REQUEST_METHOD'];
+
+        $uri = str_replace(BASE_PATH, '', parse_url($uri, PHP_URL_PATH));
         $uri = '/' . trim($uri, '/'); // Normalize URI
 
         if (!isset($this->routes[$method])) {
@@ -23,6 +25,12 @@ class Router
             echo '404 - Not Found';
             return;
         }
+
+        /* Debug
+        echo "Requested URI: " . $uri . "<br>";
+        echo "Available Routes: <pre>";
+        print_r($this->routes);
+        echo "</pre>"; */
 
         foreach ($this->routes[$method] as $route => $action) {
             $pattern = '#^' . $route . '$#';
