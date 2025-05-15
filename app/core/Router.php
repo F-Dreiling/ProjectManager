@@ -17,8 +17,13 @@ class Router
     {
         $method = $_SERVER['REQUEST_METHOD'];
 
-        $uri = str_replace(BASE_PATH, '', parse_url($uri, PHP_URL_PATH));
-        $uri = '/' . trim($uri, '/'); // Normalize URI
+        //$uri = str_replace(BASE_PATH, '', parse_url($uri, PHP_URL_PATH));
+        //$uri = '/' . trim($uri, '/'); // Normalize URI
+
+        if (strpos($uri, BASE_PATH) === 0) {
+            $uri = substr($uri, strlen(BASE_PATH));
+        }
+        $uri = '/' . trim(parse_url($uri, PHP_URL_PATH), '/'); // Normalize URI
 
         if (!isset($this->routes[$method])) {
             http_response_code(404);
