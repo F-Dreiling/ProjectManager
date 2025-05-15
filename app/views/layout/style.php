@@ -1,7 +1,8 @@
+<?php ?>
+
 body {
     letter-spacing: 0.0625rem !important;
 }
-
 
 .dr-navbar-head {
     height: 3.5rem !important;
@@ -46,7 +47,6 @@ body {
     border-top: 1px solid rgb(222, 226, 230) !important;
 }
 
-
 .table thead.dr-header-success {
     --bs-table-bg: #198754; /* Bootstrap's success green */
     --bs-table-color: white;
@@ -60,7 +60,6 @@ body {
 .table tbody tr:nth-of-type(odd) {
     --bs-table-striped-bg: #f8f9fa; /* Bootstrap's bg-light color for subtle striping */
 }
-
 
 .dr-status-open {
     color: #198754;
@@ -97,14 +96,3 @@ body {
     background-color: #f8d7da;
     border: 1px solid #f8d7da;
 }
-
-/* 
-Teal
-    color: #20c997;
-    background-color: #d1f0ea;
-    border: 1px solid #d1f0ea;
-Info
-    color: #0dcaf0;
-    background-color: #cff4fc;
-    border: 1px solid #cff4fc;
-*/
