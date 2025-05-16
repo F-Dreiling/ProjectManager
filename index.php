@@ -42,15 +42,21 @@ $router->add('GET', '/projects', 'ProjectController@index');
 
 $router->add('GET', '/', 'DashboardController@index');
 
+// Define public routes
+$publicRoutes = [
+    'projectmanager/login', 'login'
+];
+
+// Get the current URI without domain, trim slashes
+$requestUri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+
 // Redirect to login
-if (!Auth::check()) {
+if (!in_array($requestUri, $publicRoutes) && !Auth::check()) {
     header('Location: ' . BASE_PATH . '/login');
     exit;
 }
 
-// Get the current URI without domain, trim slashes and send to router
-$requestUri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
-
+// Send to Router
 $router->dispatch('/' . $requestUri);
 
 ?>
