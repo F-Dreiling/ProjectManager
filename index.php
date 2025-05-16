@@ -8,11 +8,11 @@ error_reporting(E_ALL);
 
 $config = require_once __DIR__ . '/config/config.php';
 
+define('BASE_PATH', $config['app']['base_path']);
+
 require_once __DIR__ . '/app/core/Router.php';
 require_once __DIR__ . '/app/core/Database.php';
 require_once __DIR__ . '/app/core/Auth.php';
-
-define('BASE_PATH', $config['app']['base_path']);
 
 // Initialize Router
 $router = new Router();
@@ -42,29 +42,15 @@ $router->add('GET', '/projects', 'ProjectController@index');
 
 $router->add('GET', '/', 'DashboardController@index');
 
-// Define public routes
-$publicRoutes = [
-    'login',
-];
-
-// Get the current URI
-$requestUri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
-
-// Remove BASE_PATH
-if (strpos($requestUri, ltrim(BASE_PATH, '/')) === 0) {
-    $requestUri = substr($requestUri, strlen(ltrim(BASE_PATH, '/')));
-    $requestUri = ltrim($requestUri, '/');
-}
-
 // Redirect to login
-if (!in_array($requestUri, $publicRoutes) && !Auth::check()) {
+if (!Auth::check()) {
     header('Location: ' . BASE_PATH . '/login');
     exit;
 }
 
-// Otherwise Dispatch
-$router->dispatch('/' . $requestUri);
+// Get the current URI without domain, trim slashes and send to router
+$requestUri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
 
-//echo '<br>Request URI: ' . htmlspecialchars($requestUri);
+$router->dispatch('/' . $requestUri);
 
 ?>

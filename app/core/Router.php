@@ -17,26 +17,19 @@ class Router
     {
         $method = $_SERVER['REQUEST_METHOD'];
 
-        //$uri = str_replace(BASE_PATH, '', parse_url($uri, PHP_URL_PATH));
-        //$uri = '/' . trim($uri, '/'); // Normalize URI
-
+        if (!isset($this->routes[$method])) {
+            http_response_code(404);
+            echo '404 - Request Method Not Found';
+            return;
+        }
+        
+        // Remove BASE_PATH and Normalize URI
         if (strpos($uri, BASE_PATH) === 0) {
             $uri = substr($uri, strlen(BASE_PATH));
         }
-        $uri = '/' . trim(parse_url($uri, PHP_URL_PATH), '/'); // Normalize URI
+        $uri = '/' . trim(parse_url($uri, PHP_URL_PATH), '/');
 
-        if (!isset($this->routes[$method])) {
-            http_response_code(404);
-            echo '404 - Not Found';
-            return;
-        }
-
-        /* Debug
-        echo "Requested URI: " . $uri . "<br>";
-        echo "Available Routes: <pre>";
-        print_r($this->routes);
-        echo "</pre>"; */
-
+        // Check if the route exists
         foreach ($this->routes[$method] as $route => $action) {
             $pattern = '#^' . $route . '$#';
 
@@ -71,7 +64,7 @@ class Router
 
         // Route not found
         http_response_code(404);
-        echo '404 - Not Found';
+        echo '404 - Route Not Found';
     }
 }
 
