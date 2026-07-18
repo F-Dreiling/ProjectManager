@@ -10,7 +10,7 @@ Designed as a portfolio project, ProjectManager demonstrates object-oriented PHP
 
 ### Authentication
 
-- Secure user login using hashed passwords (`password_hash()` / `password_verify()`)
+- Secure user login using hashed passwords
 - Session-based authentication
 - Protected application routes
 - User-specific data isolation
